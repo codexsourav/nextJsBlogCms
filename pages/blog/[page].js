@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { useRouter } from "next/router";
 import React from "react";
 import Navbar from "../component/Navbar";
@@ -25,7 +26,9 @@ function Page() {
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Optio
             ipsum assumenda quam nostrum iure perferendis culpa maxime
             <br />
-            <img src="/post.png" width="100%" />
+            <br />
+            <Image src="/post.png" width={500} height="100" />
+            <br />
             asperiores dignissimos autem blanditiis animi fuga ipsa excepturi
             quod, itaque corporis. Asperiores cum quidem alias sequi, saepe
             illo. Numquam aut at dicta necessitatibus perspiciatis quam quis
