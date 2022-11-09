@@ -2,7 +2,7 @@ import React from "react";
 
 import styles from "./component/comStyles/contact.module.css";
 import Head from "next/head";
-function contact() {
+function Contact() {
   return (
     <>
       <Head>
@@ -33,4 +33,4 @@ function contact() {
   );
 }
 
-export default contact;
+export default Contact;

@@ -2,7 +2,7 @@ import React from "react";
 
 import styles from "./component/comStyles/search.module.css";
 import Head from "next/head";
-function search() {
+function Search() {
   return (
     <>
       <Head>
@@ -32,4 +32,4 @@ function search() {
   );
 }
 
-export default search;
+export default Search;

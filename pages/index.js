@@ -4,7 +4,7 @@ import Postbox from "./component/Postbox";
 import Head from "next/head";
 import styles from "./component/comStyles/home.module.css";
 
-function index() {
+function Index() {
   return (
     <div>
       <Head>
@@ -22,4 +22,4 @@ function index() {
   );
 }
 
-export default index;
+export default Index;

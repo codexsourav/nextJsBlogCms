@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-function fotter() {
+function Fotter() {
   const [Show, setShow] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
   useEffect(() => {
@@ -38,4 +38,4 @@ function fotter() {
   );
 }
 
-export default fotter;
+export default Fotter;

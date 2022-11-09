@@ -14,6 +14,7 @@ function Postbox() {
           layout="responsive"
           objectFit="contain"
           height="100"
+          alt="post"
         />
       </div>
       <div className={styles.cate}>
