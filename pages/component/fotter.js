@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 function Fotter() {
-  const [Show, setShow] = useState(false);
+  const [Show, setShow] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   useEffect(() => {
     window.addEventListener("scroll", () => {

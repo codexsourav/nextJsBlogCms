@@ -1,5 +1,5 @@
 import React from "react";
-import "./authsts";
+import "../../authsts";
 import Adminnavbar from "./component/adminnavbar";
 function Index() {
   return (
