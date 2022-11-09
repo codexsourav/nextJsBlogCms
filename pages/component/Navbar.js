@@ -54,6 +54,7 @@ function Navbar() {
           height={120 / 2.5}
           alt="codexsourav logo"
           className={styles.navImg}
+          loading="lazy"
         />
       </Link>
 

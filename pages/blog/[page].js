@@ -27,7 +27,13 @@ function Page() {
             ipsum assumenda quam nostrum iure perferendis culpa maxime
             <br />
             <br />
-            <Image src="/post.png" width={500} height="100" alt="blogpost" />
+            <Image
+              src="/post.png"
+              width={500}
+              height="100"
+              alt="blogpost"
+              loading="lazy"
+            />
             <br />
             asperiores dignissimos autem blanditiis animi fuga ipsa excepturi
             quod, itaque corporis. Asperiores cum quidem alias sequi, saepe
