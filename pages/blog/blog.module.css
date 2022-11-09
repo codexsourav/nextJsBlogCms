@@ -1,0 +1,45 @@
+.mainbox {
+  margin-top: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.postinfobox {
+  width: 1000px;
+  padding: 20px;
+}
+.postinfobox .tit h1 {
+  font-size: 23px;
+  margin-bottom: 30px;
+  font-family: "Signika", sans-serif;
+}
+.postinfobox .user {
+  display: flex;
+  padding: 0px 10px;
+  font-family: "Signika", sans-serif;
+  justify-content: space-between;
+}
+.content {
+  line-height: 30px;
+  font-family: "Libre Baskerville", serif;
+  font-size: 15px;
+}
+@media only screen and (max-width: 1050px) {
+  .postinfobox {
+    width: 800px;
+  }
+}
+@media only screen and (max-width: 850px) {
+  .postinfobox {
+    width: 500px;
+  }
+}
+@media only screen and (max-width: 550px) {
+  .postinfobox {
+    width: 100%;
+  }
+  .mainbox {
+    margin-top: 90px;
+  }
+}

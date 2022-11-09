@@ -1,0 +1,208 @@
+.navbar {
+  width: 100%;
+  height: 80px;
+  background-color: #fff;
+  padding: 0px 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  z-index: 9999;
+  top: 0px;
+  left: 0;
+  transition: 0.5s ease;
+}
+.navhidden {
+  height: 4rem;
+  width: 100%;
+  position: fixed;
+  top: -80px;
+  transition: 0.5s ease;
+}
+.navbar .navImg {
+  opacity: 0.8;
+  margin-top: 5px;
+}
+.navbar .mainmenu ul {
+  list-style: none;
+  display: flex;
+  gap: 50px;
+  font-family: "Signika", sans-serif;
+  font-weight: bold;
+}
+
+.navbar .mainmenu ul li {
+  text-align: center;
+  margin-top: 7px;
+}
+.navbar .mainmenu ul li:hover {
+  opacity: 1;
+}
+.navbar .mainmenu ul li:hover::after {
+  content: " ";
+  opacity: 0.8;
+  height: 2px;
+  margin-top: 5px;
+  display: block;
+  background-color: #18272b;
+  border-radius: 50px;
+  animation-name: navactiveam;
+  animation-duration: 0.4s;
+}
+
+.navbar .active::after {
+  content: " ";
+  opacity: 0.8;
+  height: 2px;
+  margin-top: 5px;
+  display: block;
+  background-color: #18272b;
+  border-radius: 50px;
+}
+.navbar .mainmenu ul li a {
+  text-decoration: none;
+  color: #0b0b0b;
+  text-align: center;
+  opacity: 0.8;
+  letter-spacing: 3px;
+}
+
+@keyframes navactiveam {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+/* menu anv bar  */
+.navbtn {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+.menubtn {
+  width: 25px;
+  height: 2px;
+  background-color: #000;
+  transition: 0.3s ease;
+  opacity: 1;
+  border-radius: 50px;
+}
+
+.menubtn::before {
+  content: " ";
+  width: 25px;
+  height: 2px;
+  position: absolute;
+  background-color: #000;
+  margin-top: -8px;
+  opacity: 0.7;
+  border-radius: 50px;
+}
+
+.menubtn::after {
+  content: " ";
+  width: 25px;
+  height: 2px;
+  position: absolute;
+  background-color: #000;
+  margin-top: 8px;
+  opacity: 0.7;
+  border-radius: 50px;
+}
+
+/* clone nav bar  */
+.closenav {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+}
+.closenav .cbtn {
+  background-color: transparent;
+  height: 2px;
+  width: 25px;
+}
+.closenav .cbtn::after {
+  content: " ";
+  width: 25px;
+  height: 2px;
+  border-radius: 50px;
+
+  position: absolute;
+  background-color: #000;
+  opacity: 0.5;
+  rotate: 45deg;
+}
+.closenav .cbtn::before {
+  content: " ";
+  width: 25px;
+  border-radius: 50px;
+
+  height: 2px;
+  position: absolute;
+  background-color: #000;
+  opacity: 0.8;
+  rotate: -45deg;
+}
+
+@media only screen and (max-width: 900px) {
+  .navbar {
+    padding: 0px 20px;
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  .navbar {
+    padding: 0px 20px;
+  }
+  .navbar ul {
+    gap: 30px !important;
+  }
+  .navImg {
+    width: 180px;
+    height: 48px;
+  }
+  .navbar .mainmenu ul li {
+    font-size: 14px;
+  }
+}
+@media only screen and (max-width: 622px) {
+  .navbar {
+    height: 70px;
+  }
+  .navbar .mainmenu {
+    width: 100vw;
+    height: 100vh;
+    margin-top: 60px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    animation-name: navactiveam;
+    animation-duration: 0.4s;
+  }
+  .navbar .mainmenu ul {
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .navbar .mainmenu ul li {
+    margin-top: 30px;
+    width: 100px;
+  }
+  .navbtn {
+    display: flex;
+  }
+  .closenav {
+    display: flex;
+  }
+}

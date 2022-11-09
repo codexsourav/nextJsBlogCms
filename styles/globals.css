@@ -1,0 +1,88 @@
+@import url("https://fonts.googleapis.com/css2?family=Signika:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap");
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+*:focus {
+  outline: none;
+}
+body {
+  background-color: white;
+}
+.inp {
+  width: 100%;
+  padding: 15px 10px;
+  border: 1px solid rgb(184, 184, 184);
+}
+
+.container {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  width: 1000px;
+  margin: 100px auto;
+  padding: 30px;
+  min-height: 65vh;
+}
+
+.fotter {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 0px 30px;
+  font-family: "Signika", sans-serif;
+  align-items: center;
+  flex-direction: row;
+  clear: both;
+  bottom: 0;
+  position: fixed;
+  background: rgb(255, 255, 255);
+  transition: 0.5s;
+}
+.fotter .fotter-link ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+.fotter .fotter-link ul li a {
+  width: 100px;
+}
+
+.hidefotter {
+  bottom: -50px;
+}
+@media only screen and (max-width: 1050px) {
+  .container {
+    width: 800px;
+  }
+}
+@media only screen and (max-width: 850px) {
+  .container {
+    width: 500px;
+  }
+}
+@media only screen and (max-width: 550px) {
+  .container {
+    width: 100%;
+  }
+  .fotter {
+    justify-content: space-around;
+    font-size: 15px;
+    padding: 0px 10px;
+  }
+  .fotter ul {
+    gap: 10px;
+    width: 100%;
+    font-size: 12px;
+  }
+}

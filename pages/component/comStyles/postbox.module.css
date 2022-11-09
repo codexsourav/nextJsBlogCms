@@ -1,0 +1,86 @@
+.mainbox {
+  width: 350px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.mainbox .imagesec {
+  width: 350px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.mainbox .imagesec img {
+  height: 600px;
+  width: 400px;
+  scale: calc(105%);
+  transition: 0.5s;
+}
+.mainbox .imagesec img:hover {
+  scale: calc(108%);
+}
+.mainbox .cate {
+  padding: 20px 12px;
+  font-family: "Signika", sans-serif;
+  font-weight: bold;
+  color: #ee7660;
+}
+.mainbox .title {
+  padding: 4px 5px;
+  font-family: "Signika", sans-serif;
+}
+.mainbox .title h2 {
+  font-size: 19px;
+  color: #3b3b3b;
+}
+.mainbox .desc {
+  padding: 10px 5px;
+}
+.mainbox .desc p {
+  font-size: 14px;
+  text-align: justify;
+  font-family: "Libre Baskerville", serif;
+}
+.mainbox .more {
+  font-family: "Signika", sans-serif;
+  padding: 10px 10px;
+}
+.mainbox .more a {
+  color: #1b2538;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  font-size: 15px;
+  display: block;
+  opacity: 0.8;
+}
+.mainbox .more a::before {
+  content: " ";
+  position: absolute;
+  width: 85px;
+  height: 1px;
+  background-color: rgb(48, 48, 48);
+  margin-top: 20px;
+  margin-left: 1px;
+}
+.mainbox .more a:hover::before {
+  animation-name: navactiveam;
+  animation-duration: 0.4s;
+}
+@keyframes navactiveam {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 85px;
+  }
+}
+@media only screen and (max-width: 300px) {
+  .mainbox {
+    width: 350px;
+  }
+  .mainbox .imagesec {
+    width: 350px;
+  }
+}

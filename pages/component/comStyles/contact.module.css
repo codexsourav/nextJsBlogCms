@@ -1,0 +1,26 @@
+.contactform .contactit {
+  font-family: "Signika", sans-serif;
+  font-weight: bold;
+}
+.contactform .lbl {
+  display: block;
+  font-family: "Signika", sans-serif;
+  margin-bottom: 8px;
+  margin-top: 20px;
+}
+
+.contactform .btn {
+  padding: 15px 25px;
+  margin-top: 20px;
+  cursor: pointer;
+  border: 0;
+  background-color: #3f3f3f;
+  color: #fff;
+  border-radius: 10px;
+}
+
+@media only screen and (max-width: 550px) {
+  .mainbox {
+    margin-top: 100px;
+  }
+}

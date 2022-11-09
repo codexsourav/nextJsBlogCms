@@ -1,0 +1,38 @@
+.postcontent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 50px;
+  width: 1200px;
+  margin: 0px auto;
+}
+
+.load {
+  display: flex;
+  margin-top: 30px;
+  justify-content: center;
+  align-items: center;
+}
+.load .loadmore {
+  margin: 30px auto;
+  border: 1px solid rgb(128, 128, 128);
+  padding: 12px 25px;
+  background-color: #fff;
+  transition: 0.5s;
+  cursor: pointer;
+}
+.load .loadmore:hover {
+  box-shadow: 7px 4px 14px -3px rgba(0, 0, 0, 0.1);
+}
+@media only screen and (max-width: 1274px) {
+  .postcontent {
+    width: 1000px;
+  }
+}
+@media only screen and (max-width: 1000px) {
+  .postcontent {
+    width: 100%;
+  }
+}
