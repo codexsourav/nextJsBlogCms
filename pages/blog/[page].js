@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import React from "react";
 import Navbar from "../component/Navbar";
 import styles from "./blog.module.css";
-function page() {
+function Page() {
   const data = useRouter();
   console.log(data.query.page);
   return (
@@ -149,4 +149,4 @@ function page() {
   );
 }
 
-export default page;
+export default Page;
