@@ -35,7 +35,10 @@ export async function getServerSideProps(context) {
     body: JSON.stringify({ cook }),
   };
 
-  const data = await fetch("http://localhost:3000/api/adminposts", options);
+  const data = await fetch(
+    "https://codexsourav.vercel.app/api/adminposts",
+    options
+  );
   const posts = await data.json();
   console.log(posts);
   return {
