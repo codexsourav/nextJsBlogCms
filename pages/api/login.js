@@ -1,4 +1,4 @@
-import Users from "./model/users";
+import Users from "../../database/users";
 import jwt from "jsonwebtoken";
 import cookie from "cookie";
 

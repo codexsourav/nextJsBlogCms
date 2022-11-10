@@ -15,6 +15,18 @@ const PostSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  desc: {
+    type: String,
+    required: true,
+  },
+  tags: {
+    type: String,
+    required: true,
+  },
+  cate: {
+    type: String,
+    required: true,
+  },
   auther: {
     type: String,
     required: true,
@@ -22,6 +34,15 @@ const PostSchema = new mongoose.Schema({
   },
   date: {
     type: Date,
+    required: true,
+  },
+  uri: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+  view: {
+    type: Number,
     required: true,
   },
 });

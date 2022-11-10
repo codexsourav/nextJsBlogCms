@@ -1,8 +1,6 @@
-import Postdata from "./model/blogposts";
-import authuser from "./model/authsts";
+import Postdata from "../../database/blogposts";
 export default function handler(req, res) {
-  console.log(authuser(req, res));
-  Postdata.find().then((d) => {
+  Postdata.find({ view: 1 }).then((d) => {
     res.send(d);
   });
 }

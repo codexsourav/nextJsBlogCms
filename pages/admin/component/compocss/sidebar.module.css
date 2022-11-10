@@ -1,0 +1,26 @@
+.sidebar {
+  width: 200px;
+  height: calc(100vh - 80px);
+  background-color: #fff;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 9999;
+  border-right: 1px solid rgb(202, 202, 202);
+}
+.sidebar .links {
+  padding: 20px;
+  list-style: none;
+}
+.sidebar .links li a {
+  margin: 30px 0px;
+  padding: 10px;
+  display: block;
+  transition: 0.6s;
+}
+.sidebar .links li .active,
+.sidebar .links li a:hover {
+  background-color: rgb(230, 230, 230);
+  border-radius: 10px;
+  padding-left: 20px;
+}

@@ -1,6 +1,7 @@
 import Router from "next/router";
-import React from "react";
 import styles from "./compocss/adminnav.module.css";
+import "../../../authsts";
+import React from "react";
 function Adminnavbar() {
   const logout = () => {
     let url = "/api/logout";

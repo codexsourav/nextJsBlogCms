@@ -1,13 +1,35 @@
+import Postdata from "../../database/blogposts";
+import authuser from "./authsts";
 export default function handler(req, res) {
-  res.status(200).json({
-    name: "John Doe",
-    age: 20,
-    result: {
-      ben: 20,
-      eng: 19,
-      math: 15,
-      history: 16,
-      books: ["ben", "eng"],
-    },
-  });
+  authuser(req, res);
+  console.log(req.body);
+  if (req.method === "POST") {
+    const { title, poster, content, desc, tags, cate, auther, uri, view } =
+      req.body;
+    if ((title, poster, content, desc, tags, cate, auther, uri, view)) {
+      const addpost = new Postdata({
+        title,
+        poster,
+        content,
+        desc,
+        tags,
+        cate,
+        auther,
+        date: Date.now(),
+        uri,
+        view,
+      });
+
+      addpost
+        .save()
+        .then((d) => {
+          res.send({ add: true });
+        })
+        .catch((err) => {
+          res.send({ error: "Server Error: " + err });
+        });
+    }
+  } else {
+    res.send({ error: "Invalid Request" });
+  }
 }

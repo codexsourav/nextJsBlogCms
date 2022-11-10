@@ -1,6 +1,6 @@
 import Router from "next/router";
 
-let url = "/api/auth";
+let url = "/api/authsts";
 let options = {
   method: "POST",
   headers: {
@@ -8,7 +8,6 @@ let options = {
   },
 };
 
-let data;
 fetch(url, options)
   .then((res) => res.json())
   .then((json) => {
@@ -17,5 +16,3 @@ fetch(url, options)
     }
   })
   .catch((err) => console.error("error:" + err));
-
-export default data;
