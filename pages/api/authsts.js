@@ -3,7 +3,7 @@ import jwt from "jsonwebtoken";
 const authsts = (req, res) => {
   if (req.cookies.auth) {
     try {
-      const decode = jwt.verify(req.cookies.auth, "sourav404");
+      const decode = jwt.verify(req.cookies.auth, process.env.JWT);
       if (decode) {
         return decode;
       } else {

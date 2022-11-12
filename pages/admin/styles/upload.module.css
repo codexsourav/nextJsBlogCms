@@ -1,0 +1,9 @@
+.img {
+  display: flex;
+  padding: 30px;
+  flex-direction: row-reverse;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  align-items: center;
+}

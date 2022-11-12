@@ -1,7 +1,7 @@
 .postcontent {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   flex-direction: row;
   flex-wrap: wrap;
   gap: 50px;
@@ -14,6 +14,7 @@
   margin-top: 30px;
   justify-content: center;
   align-items: center;
+  margin-bottom: 50px;
 }
 .load .loadmore {
   margin: 30px auto;

@@ -3,13 +3,12 @@ import Link from "next/link";
 import React from "react";
 import styles from "./comStyles/postbox.module.css";
 
-function Postbox() {
+function Postbox(props) {
   return (
     <div className={styles.mainbox}>
-      {/* <Link href="/"> */}
       <div className={styles.imagesec}>
         <Image
-          src="/post.png"
+          src={props.poster}
           width="100"
           layout="responsive"
           objectFit="contain"
@@ -19,19 +18,16 @@ function Postbox() {
         />
       </div>
       <div className={styles.cate}>
-        <p>HELGTH</p>
+        <p>{props.cate}</p>
       </div>
       <div className={styles.title}>
-        <h2>Are you looking for an easy guide on blog?</h2>
+        <h2>{props.title}</h2>
       </div>
       <div className={styles.desc}>
-        <p>
-          The step-by-step guide on this page will show you how to create a blog
-          in 20 minutes with just the most basic computer skills.
-        </p>
+        <p>{props.desc}</p>
       </div>
       <div className={styles.more}>
-        <Link href="/blog/post">READ MORE</Link>
+        <Link href={`/blog/${props.uri}`}>READ MORE</Link>
       </div>
       {/* </Link> */}
     </div>

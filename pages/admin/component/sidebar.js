@@ -42,7 +42,20 @@ function Sidebar() {
           </Link>
         </li>
         <li>
-          <a href="#">Upload Images</a>
+          <Link
+            className={url == "upload" ? styles.active : null}
+            href="/admin/upload"
+          >
+            Upload Images
+          </Link>
+        </li>
+        <li>
+          <Link
+            className={url == "contact" ? styles.active : null}
+            href="/admin/contact"
+          >
+            Contacts
+          </Link>
         </li>
         <li>
           <a

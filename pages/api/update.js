@@ -2,7 +2,13 @@ import Postdata from "../../database/blogposts";
 import authuser from "./authsts";
 export default function handler(req, res) {
   authuser(req, res);
-  console.log(req.body);
+  var today = new Date();
+  var dd = String(today.getDate()).padStart(2, "0");
+  var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+  var yyyy = today.getFullYear();
+
+  today = dd + "/" + mm + "/" + yyyy;
+
   if (req.method === "POST") {
     const { title, poster, content, desc, tags, cate, auther, uri, view, pid } =
       req.body;
@@ -20,6 +26,7 @@ export default function handler(req, res) {
             auther,
             date: Date.now(),
             uri,
+            maindate: today,
             view,
           },
         },

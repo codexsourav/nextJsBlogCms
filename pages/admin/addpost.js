@@ -1,11 +1,9 @@
 import Router from "next/router";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Adminnavbar from "./component/adminnavbar";
 import Sidebar from "./component/sidebar";
-
-// import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
-// import { CKEditor } from "@ckeditor/ckeditor5-react";
-
+import dynamic from "next/dynamic";
+const Editor = dynamic(() => import("./component/editor"), { ssr: false });
 function Addpost() {
   const [content, setcontent] = useState("");
   const [title, settitle] = useState("");
@@ -68,32 +66,10 @@ function Addpost() {
       <Sidebar />
       <div className="container-admin">
         <div className="errortxt">{error}</div>
-
-        {/* <CKEditor
-          removePlugins={"Image"}
-          editor={ClassicEditor}
-          data="<p> Write Your Blog Post</p>"
-          onReady={(editor) => {
-            // You can store the "editor" and use when it is needed.
-            console.log("Editor is ready to use!", editor);
-          }}
-          onChange={(event, editor) => {
-            const data = editor.getData();
-            console.log(data);
-          }}
-        /> */}
         <label style={{ display: "block", marginTop: 30, marginBottom: 10 }}>
           Post Html Code
         </label>
-        <textarea
-          type="text"
-          className="inp"
-          style={{ marginBottom: 30, height: 200 }}
-          value={content}
-          onChange={(d) => {
-            setcontent(d.target.value);
-          }}
-        ></textarea>
+        <Editor data={content} update={setcontent} />
 
         <label style={{ display: "block", marginBottom: 10, marginTop: 30 }}>
           Post Title

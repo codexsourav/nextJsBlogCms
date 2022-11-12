@@ -44,6 +44,20 @@ body {
   flex-direction: column;
   justify-content: center;
 }
+.container-admin table {
+  border: 1px solid gray;
+}
+.container-admin table thead th {
+  border: 1px solid gray;
+  text-align: center;
+  padding: 10px;
+}
+.container-admin table tr td {
+  text-align: center;
+
+  padding: 6px 10px;
+  border: 1px solid gray;
+}
 .clbtn {
   width: 190px;
   padding: 15px 25px;

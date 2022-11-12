@@ -1,25 +1,34 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import Adminnavbar from "./component/adminnavbar";
 import Postbox from "./component/postbox";
 import Sidebar from "./component/sidebar";
+
 function Index(props) {
-  const [posts, setposts] = useState(props.posts);
+  const post = props.posts;
+  const [posts, setposts] = useState([]);
+  console.log(post);
+  useEffect(() => {
+    setposts(post);
+  }, [post]);
+
   return (
     <>
       <Adminnavbar />
       <Sidebar />
       <div className="container-admin">
-        {posts.map((blog) => {
-          return (
-            <Postbox
-              key={blog._id}
-              id={blog._id}
-              title={blog.uri}
-              desc={blog.desc}
-            />
-          );
-        })}
+        {post.auth != false
+          ? posts.map((blog) => {
+              return (
+                <Postbox
+                  key={blog._id}
+                  id={blog._id}
+                  title={blog.uri}
+                  desc={blog.desc}
+                />
+              );
+            })
+          : null}
       </div>
     </>
   );
@@ -34,13 +43,10 @@ export async function getServerSideProps(context) {
     },
     body: JSON.stringify({ cook }),
   };
-
-  const data = await fetch(
-    "https://codexsourav.vercel.app/api/adminposts",
-    options
-  );
+  const host = process.env.HOST;
+  const data = await fetch(host + "/api/adminposts", options);
   const posts = await data.json();
-  console.log(posts);
+
   return {
     props: { posts },
   };

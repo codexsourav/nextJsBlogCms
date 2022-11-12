@@ -26,14 +26,19 @@
   font-family: "Signika", sans-serif;
   font-weight: bold;
   color: #ee7660;
+  text-transform: uppercase;
 }
 .mainbox .title {
   padding: 4px 5px;
   font-family: "Signika", sans-serif;
+  text-transform: capitalize;
 }
 .mainbox .title h2 {
   font-size: 19px;
   color: #3b3b3b;
+  line-height: 1.5em;
+  height: 3em; /* height is 2x line-height, so two lines will display */
+  overflow: hidden;
 }
 .mainbox .desc {
   padding: 10px 5px;
@@ -42,6 +47,9 @@
   font-size: 14px;
   text-align: justify;
   font-family: "Libre Baskerville", serif;
+  line-height: 1.5em;
+  height: 3em; /* height is 2x line-height, so two lines will display */
+  overflow: hidden;
 }
 .mainbox .more {
   font-family: "Signika", sans-serif;

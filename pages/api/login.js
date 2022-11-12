@@ -15,7 +15,7 @@ export default function handler(req, res) {
         if (!result) {
           res.send({ error: `Invalid Usrname Or Password` });
         } else {
-          var token = jwt.sign({ user: result._id }, "sourav404");
+          var token = jwt.sign({ user: result._id }, process.env.JWT);
           res.setHeader(
             "set-Cookie",
             cookie.serialize("auth", token, {

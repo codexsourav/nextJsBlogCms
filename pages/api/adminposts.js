@@ -5,11 +5,13 @@ export default function handler(req, res) {
   if (req.method === "POST") {
     if (req.body.cook.auth) {
       try {
-        const decode = jwt.verify(req.body.cook.auth, "sourav404");
+        const decode = jwt.verify(req.body.cook.auth, process.env.JWT);
         if (decode) {
-          Postdata.find().then((d) => {
-            res.send(d);
-          });
+          Postdata.find()
+            .sort({ date: -1 })
+            .then((d) => {
+              res.send(d);
+            });
         } else {
           res.send({ auth: false });
         }

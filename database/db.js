@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 mongoose
-  .connect("mongodb+srv://sourav:sourav@cluster0.6aannpk.mongodb.net/test")
+  .connect(process.env.DB)
   .then(() => {
     console.log("Database Is Connected");
   });

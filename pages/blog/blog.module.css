@@ -26,7 +26,7 @@
   font-size: 15px;
 }
 .content img {
-  width: 100%;
+  width: 50%;
   height: auto;
 }
 @media only screen and (max-width: 1050px) {
@@ -40,6 +40,10 @@
   }
 }
 @media only screen and (max-width: 550px) {
+  .content img {
+    width: 100%;
+    height: auto;
+  }
   .postinfobox {
     width: 100%;
   }

@@ -1,9 +1,10 @@
-import { useRouter } from "next/router";
+import Router, { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import Adminnavbar from "../component/adminnavbar";
 import Sidebar from "../component/sidebar";
-
-function Update(props) {
+import dynamic from "next/dynamic";
+const Editor = dynamic(() => import("../component/editor"), { ssr: false });
+function Update() {
   const roues = useRouter();
   const { id } = roues.query;
 
@@ -25,7 +26,7 @@ function Update(props) {
       method: "POST",
       headers: {
         Accept: "*/*",
-        "User-Agent": "Thunder Client (https://www.thunderclient.com)",
+
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ fby: "_id", sid: id }),
@@ -34,6 +35,9 @@ function Update(props) {
     fetch(url, options)
       .then((res) => res.json())
       .then((json) => {
+        if (json.error) {
+          Router.replace("/admin");
+        }
         setcontent(json.content);
         settitle(json.title);
         setdesc(json.desc);
@@ -55,7 +59,6 @@ function Update(props) {
       method: "POST",
       headers: {
         Accept: "*/*",
-
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
@@ -95,31 +98,10 @@ function Update(props) {
       <div className="container-admin">
         <div className="errortxt">{error}</div>
 
-        {/* <CKEditor
-      removePlugins={"Image"}
-      editor={ClassicEditor}
-      data="<p> Write Your Blog Post</p>"
-      onReady={(editor) => {
-        // You can store the "editor" and use when it is needed.
-        console.log("Editor is ready to use!", editor);
-      }}
-      onChange={(event, editor) => {
-        const data = editor.getData();
-        console.log(data);
-      }}
-    /> */}
         <label style={{ display: "block", marginTop: 30, marginBottom: 10 }}>
           Post Html Code
         </label>
-        <textarea
-          type="text"
-          className="inp"
-          style={{ marginBottom: 30, height: 200 }}
-          value={content}
-          onChange={(d) => {
-            setcontent(d.target.value);
-          }}
-        ></textarea>
+        <Editor data={content} update={setcontent} />
 
         <label style={{ display: "block", marginBottom: 10, marginTop: 30 }}>
           Post Title

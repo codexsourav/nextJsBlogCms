@@ -41,6 +41,10 @@ const PostSchema = new mongoose.Schema({
     required: true,
     unique: true,
   },
+  maindate: {
+    type: String,
+    required: true,
+  },
   view: {
     type: Number,
     required: true,
