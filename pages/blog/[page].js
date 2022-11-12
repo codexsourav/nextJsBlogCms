@@ -1,7 +1,7 @@
 import Head from "next/head";
 import React from "react";
 
-import Navbar from "../component/Navbar";
+import Navbar from "../../siteconponent/blogcomponent/Navbar";
 import styles from "./blog.module.css";
 function Page(props) {
   console.log(props);
@@ -29,6 +29,19 @@ function Page(props) {
   return (
     <>
       <Navbar />
+      <Head>
+        <title>{blog.title}</title>
+        <meta name="description" content={blog.desc} />
+        <meta name="keywords" content={blog.tags} />
+        <meta name="author" content={blog.auther} />
+
+        <meta name="og:title" content={blog.title} />
+        <meta name="og:type" content={blog.cate} />
+        <meta name="og:url" content={process.env.HOST + "/" + blog.uri} />
+        <meta name="og:image" content={blog.poster} />
+        <meta name="og:site_name" content="codex souarv" />
+        <meta name="og:description" content={blog.desc} />
+      </Head>
       <div className={styles.mainbox}>
         <div className={styles.postinfobox}>
           <div className={styles.tit}>

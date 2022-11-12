@@ -1,6 +1,6 @@
 import Head from "next/head";
 import React, { useState } from "react";
-import styles from "./styles/login.module.css";
+import styles from "../../siteconponent/adminConponent/styles/login.module.css";
 import Router from "next/router";
 
 function Login() {
@@ -60,7 +60,7 @@ function Login() {
             }}
           />
           <br />
-          
+
           <button className={styles.btn} onClick={formHandel}>
             Login
           </button>

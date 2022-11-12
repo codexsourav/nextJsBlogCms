@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 
-import Adminnavbar from "./component/adminnavbar";
-import Postbox from "./component/postbox";
-import Sidebar from "./component/sidebar";
+import Adminnavbar from "../../siteconponent/adminConponent/component/adminnavbar";
+import Postbox from "../../siteconponent/adminConponent/component/postbox";
+import Sidebar from "../../siteconponent/adminConponent/component/sidebar";
 
 function Index(props) {
   const post = props.posts;

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import Adminnavbar from "./component/adminnavbar";
-import Sidebar from "./component/sidebar";
+import Adminnavbar from "../../siteconponent/adminConponent/component/adminnavbar";
+import Sidebar from "../../siteconponent/adminConponent/component/sidebar";
 
 function Contact() {
   const [data, setData] = useState([]);

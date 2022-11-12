@@ -1,8 +1,8 @@
 import React from "react";
 
-import Postbox from "./component/Postbox";
+import Postbox from "../siteconponent/blogcomponent/Postbox";
 import Head from "next/head";
-import styles from "./component/comStyles/home.module.css";
+import styles from "../siteconponent/blogcomponent/comStyles/home.module.css";
 
 function Index(props) {
   const blogs = props.posts;

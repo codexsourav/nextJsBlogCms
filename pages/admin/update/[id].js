@@ -1,9 +1,12 @@
 import Router, { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
-import Adminnavbar from "../component/adminnavbar";
-import Sidebar from "../component/sidebar";
+import Adminnavbar from "../../../siteconponent/adminConponent/component/adminnavbar";
+import Sidebar from "../../../siteconponent/adminConponent/component/sidebar";
 import dynamic from "next/dynamic";
-const Editor = dynamic(() => import("../../../editor"), { ssr: false });
+const Editor = dynamic(
+  () => import("../../../siteconponent/adminConponent/component/editor"),
+  { ssr: false }
+);
 function Update() {
   const roues = useRouter();
   const { id } = roues.query;

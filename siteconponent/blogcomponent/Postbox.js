@@ -13,7 +13,7 @@ function Postbox(props) {
           layout="responsive"
           objectFit="contain"
           height="100"
-          alt="post"
+          alt={props.cate + " image"}
           loading="lazy"
         />
       </div>
@@ -29,7 +29,6 @@ function Postbox(props) {
       <div className={styles.more}>
         <Link href={`/blog/${props.uri}`}>READ MORE</Link>
       </div>
-      {/* </Link> */}
     </div>
   );
 }

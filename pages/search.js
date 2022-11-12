@@ -1,6 +1,6 @@
 import React from "react";
 
-import styles from "./component/comStyles/search.module.css";
+import styles from "../siteconponent/blogcomponent/comStyles/search.module.css";
 import Head from "next/head";
 function Search() {
   return (

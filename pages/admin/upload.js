@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import Adminnavbar from "./component/adminnavbar";
-import Sidebar from "./component/sidebar";
+import Adminnavbar from "../../siteconponent/adminConponent/component/adminnavbar";
+import Sidebar from "../../siteconponent/adminConponent/component/sidebar";
 import { storage } from "../../firebase";
 import { getDownloadURL, listAll, ref, uploadBytes } from "firebase/storage";
 import { v4 } from "uuid";
 import Image from "next/image";
-import styles from "./styles/upload.module.css";
+import styles from "../../siteconponent/adminConponent/styles/upload.module.css";
 
 function Upload() {
   const [File, setFile] = useState(null);
@@ -29,7 +29,6 @@ function Upload() {
           alert("image Uplaoded");
           setFile(null);
           loadiamge();
-          console.log(e);
         })
         .catch((e) => {
           console.log(e);
@@ -77,7 +76,7 @@ function Upload() {
                   <div style={{ width: 200 }} key={d}>
                     <input value={d} className="inp" />
                     <Image
-                      alt="The guitarist in the concert."
+                      alt="Google Firebase"
                       src={d}
                       width={300}
                       height={150}

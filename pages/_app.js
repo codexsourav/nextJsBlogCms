@@ -1,6 +1,6 @@
 import "../styles/globals.css";
-import Navbar from "./component/Navbar";
-import Fotter from "./component/fotter";
+import Navbar from "../siteconponent/blogcomponent/Navbar";
+import Fotter from "../siteconponent/blogcomponent/fotter";
 import { useRouter } from "next/router";
 
 function MyApp({ Component, pageProps }) {

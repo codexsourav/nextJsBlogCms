@@ -1,7 +1,8 @@
 import Router from "next/router";
 import styles from "./compocss/adminnav.module.css";
-import "../../../authsts";
+import "./authsts";
 import React from "react";
+import NextNProgress from "nextjs-progressbar";
 function Adminnavbar() {
   const logout = () => {
     let url = "/api/logout";
@@ -20,14 +21,24 @@ function Adminnavbar() {
       .catch((err) => console.error("error:" + err));
   };
   return (
-    <div className={styles.navbar}>
-      <h3>Admin Panel</h3>
-      <div>
-        <p onClick={logout} className={styles.logoutbtn}>
-          Logout
-        </p>
+    <>
+      <NextNProgress
+        color="#29D"
+        startPosition={0.3}
+        stopDelayMs={200}
+        height={3}
+        showOnShallow={true}
+      />
+
+      <div className={styles.navbar}>
+        <h3>Admin Panel</h3>
+        <div>
+          <p onClick={logout} className={styles.logoutbtn}>
+            Logout
+          </p>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 

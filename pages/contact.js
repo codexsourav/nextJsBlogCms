@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
-import styles from "./component/comStyles/contact.module.css";
+import styles from "../siteconponent/blogcomponent/comStyles/contact.module.css";
 import Head from "next/head";
-import { set } from "mongoose";
+
 function Contact() {
   const [name, setname] = useState("");
   const [email, setemail] = useState("");

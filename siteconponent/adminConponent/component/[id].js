@@ -1,13 +1,13 @@
-import Router from "next/router";
-import React, { useState } from "react";
-import Adminnavbar from "../../siteconponent/adminConponent/component/adminnavbar";
-import Sidebar from "../../siteconponent/adminConponent/component/sidebar";
+import Router, { useRouter } from "next/router";
+import React, { useEffect, useState } from "react";
+import Adminnavbar from "../component/adminnavbar";
+import Sidebar from "../../";
 import dynamic from "next/dynamic";
-const Editor = dynamic(
-  () => import("../../siteconponent/adminConponent/component/editor"),
-  { ssr: false }
-);
-function Addpost() {
+const Editor = dynamic(() => import("../../adminConponent/component/editor"), { ssr: false });
+function Update() {
+  const roues = useRouter();
+  const { id } = roues.query;
+
   const [content, setcontent] = useState("");
   const [title, settitle] = useState("");
   const [desc, setdesc] = useState("");
@@ -17,19 +17,48 @@ function Addpost() {
   const [auther, setauther] = useState("Sourav");
   const [cate, setcate] = useState("");
   const [view, setview] = useState(-1);
-
   const [error, seterror] = useState("");
+  const [pid, setpid] = useState("");
 
-  // add post function
-
-  const addnewpost = () => {
-    let url = "/api/addpost";
-
+  useEffect(() => {
+    let url = "/api/blog";
     let options = {
       method: "POST",
       headers: {
         Accept: "*/*",
 
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ fby: "_id", sid: id }),
+    };
+
+    fetch(url, options)
+      .then((res) => res.json())
+      .then((json) => {
+        if (json.error) {
+          Router.replace("/admin");
+        }
+        setcontent(json.content);
+        settitle(json.title);
+        setdesc(json.desc);
+        setposter(json.poster);
+        setauther(json.auther);
+        seturi(json.uri);
+        settags(json.tags);
+        setcate(json.cate);
+        setview(json.view);
+        setpid(json._id);
+      })
+      .catch((err) => console.error("error:" + err));
+  }, [id]);
+
+  const upadtepost = () => {
+    let url = "/api/update";
+
+    let options = {
+      method: "POST",
+      headers: {
+        Accept: "*/*",
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
@@ -42,21 +71,20 @@ function Addpost() {
         auther,
         uri,
         view,
+        pid,
       }),
     };
 
     fetch(url, options)
       .then((res) => res.json())
       .then((json) => {
-        console.log(json);
-        if (json.auth == false) {
-          Router.replace("/admin/login");
-          return false;
+        if (json.error) {
+          seterror(json.err.error);
         } else {
-          if (json.error) {
-            seterror(json.error);
+          if (json.result.acknowledged == true) {
+            alert("Your Data Is Updated");
           } else {
-            alert("Your New Post Is Added");
+            console.log(json);
           }
         }
       })
@@ -69,6 +97,7 @@ function Addpost() {
       <Sidebar />
       <div className="container-admin">
         <div className="errortxt">{error}</div>
+
         <label style={{ display: "block", marginTop: 30, marginBottom: 10 }}>
           Post Html Code
         </label>
@@ -179,14 +208,13 @@ function Addpost() {
         <button
           className="clbtn"
           onClick={() => {
-            addnewpost();
+            upadtepost();
           }}
         >
-          Add Your Post
+          Update Your Post
         </button>
       </div>
     </>
   );
 }
-
-export default Addpost;
+export default Update;
