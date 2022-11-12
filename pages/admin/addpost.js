@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import Adminnavbar from "./component/adminnavbar";
 import Sidebar from "./component/sidebar";
 import dynamic from "next/dynamic";
-const Editor = dynamic(() => import("./component/editor"), { ssr: false });
+const Editor = dynamic(() => import("../../editor"), { ssr: false });
 function Addpost() {
   const [content, setcontent] = useState("");
   const [title, settitle] = useState("");
