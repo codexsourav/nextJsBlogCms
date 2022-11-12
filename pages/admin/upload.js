@@ -74,7 +74,7 @@ function Upload() {
           {getfile
             ? removeDuplicates(getfile).map((d) => {
                 return (
-                  <div style={{ width: 200 }}>
+                  <div style={{ width: 200 }} key={d}>
                     <input value={d} className="inp" />
                     <Image
                       alt="The guitarist in the concert."
