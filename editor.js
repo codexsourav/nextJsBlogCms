@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import "../../../authsts";
+import "./authsts";
 import JoditEditor from "jodit-react";
 function Editor(props) {
   const editor = useRef(null);
