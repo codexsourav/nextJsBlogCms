@@ -53,7 +53,7 @@ function Navbar() {
         color="#ee7660"
         startPosition={0.3}
         stopDelayMs={200}
-        height={3}
+        height={5}
         showOnShallow={true}
       />
 

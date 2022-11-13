@@ -7,6 +7,8 @@ const Editor = dynamic(
   () => import("../../siteconponent/adminConponent/component/editor"),
   { ssr: false }
 );
+import Swal from "sweetalert2/dist/sweetalert2.js";
+
 function Addpost() {
   const [content, setcontent] = useState("");
   const [title, settitle] = useState("");
@@ -56,7 +58,7 @@ function Addpost() {
           if (json.error) {
             seterror(json.error);
           } else {
-            alert("Your New Post Is Added");
+            Swal.fire("Your New Post Is Added!", "", "success");
           }
         }
       })

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Adminnavbar from "../../siteconponent/adminConponent/component/adminnavbar";
 import Sidebar from "../../siteconponent/adminConponent/component/sidebar";
+import Swal from "sweetalert2/dist/sweetalert2.js";
 
 function Contact() {
   const [data, setData] = useState([]);
@@ -20,7 +21,7 @@ function Contact() {
       .then((res) => res.json())
       .then((json) => {
         if (json.status == true) {
-          alert("Delete Your Data");
+          Swal.fire("This data is Deleted!", "", "success");
           load();
         } else {
           alert(JSON.stringify(json));

@@ -114,10 +114,18 @@ body {
   .container {
     width: 500px;
   }
+  .container-admin {
+    width: 100%;
+    margin-left: 0px;
+    padding: 20px;
+    margin-bottom: 90px;
+    font-family: "Signika", sans-serif;
+  }
 }
 @media only screen and (max-width: 550px) {
   .container {
     width: 100%;
+    margin-bottom: 40px !important;
   }
   .fotter {
     justify-content: space-around;

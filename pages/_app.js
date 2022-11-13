@@ -1,4 +1,5 @@
 import "../styles/globals.css";
+import "sweetalert2/src/sweetalert2.scss";
 import Navbar from "../siteconponent/blogcomponent/Navbar";
 import Fotter from "../siteconponent/blogcomponent/fotter";
 import { useRouter } from "next/router";

@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import Adminnavbar from "../../siteconponent/adminConponent/component/adminnavbar";
 import Postbox from "../../siteconponent/adminConponent/component/postbox";
 import Sidebar from "../../siteconponent/adminConponent/component/sidebar";
+import styles from "../../siteconponent/blogcomponent/comStyles/home.module.css";
 
 function Index(props) {
   const post = props.posts;
@@ -12,23 +13,43 @@ function Index(props) {
     setposts(post);
   }, [post]);
 
+  const [load, setload] = useState(6);
+  const loadmore = () => {
+    setload((d) => d + 6);
+  };
+
   return (
     <>
       <Adminnavbar />
       <Sidebar />
       <div className="container-admin">
-        {post.auth != false
-          ? posts.map((blog) => {
-              return (
-                <Postbox
-                  key={blog._id}
-                  id={blog._id}
-                  title={blog.uri}
-                  desc={blog.desc}
-                />
-              );
-            })
-          : null}
+        {posts.auth != false ? (
+          posts.slice(0, load).map((blog) => {
+            return (
+              <Postbox
+                key={blog._id}
+                id={blog._id}
+                title={blog.uri}
+                desc={blog.desc}
+              />
+            );
+          })
+        ) : (
+          <>Loading....</>
+        )}
+        <br />
+        <div className={styles.load}>
+          {posts.length >= load ? (
+            <button
+              className={styles.loadmore}
+              onClick={() => {
+                loadmore();
+              }}
+            >
+              Load More
+            </button>
+          ) : null}
+        </div>
       </div>
     </>
   );

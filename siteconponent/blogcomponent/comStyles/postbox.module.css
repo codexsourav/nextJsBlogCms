@@ -53,7 +53,7 @@
 }
 .mainbox .more {
   font-family: "Signika", sans-serif;
-  padding: 10px 10px;
+  padding: 0px 10px;
 }
 .mainbox .more a {
   color: #1b2538;
@@ -62,6 +62,8 @@
   font-size: 15px;
   display: block;
   opacity: 0.8;
+  padding: 10px 0px;
+  width: 100%;
 }
 .mainbox .more a::before {
   content: " ";

@@ -43,6 +43,7 @@
   .content img {
     width: 100%;
     height: auto;
+    margin: 8px 0px;
   }
   .postinfobox {
     width: 100%;

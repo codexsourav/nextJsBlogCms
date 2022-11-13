@@ -7,6 +7,8 @@ const Editor = dynamic(
   () => import("../../../siteconponent/adminConponent/component/editor"),
   { ssr: false }
 );
+import Swal from "sweetalert2/dist/sweetalert2.js";
+
 function Update() {
   const roues = useRouter();
   const { id } = roues.query;
@@ -85,7 +87,7 @@ function Update() {
           seterror(json.err.error);
         } else {
           if (json.result.acknowledged == true) {
-            alert("Your Data Is Updated");
+            Swal.fire("This Post is Updated!", "", "success");
           } else {
             console.log(json);
           }

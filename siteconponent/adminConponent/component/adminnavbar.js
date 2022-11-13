@@ -3,6 +3,7 @@ import styles from "./compocss/adminnav.module.css";
 import "./authsts";
 import React from "react";
 import NextNProgress from "nextjs-progressbar";
+import Link from "next/link";
 function Adminnavbar() {
   const logout = () => {
     let url = "/api/logout";
@@ -26,12 +27,14 @@ function Adminnavbar() {
         color="#29D"
         startPosition={0.3}
         stopDelayMs={200}
-        height={3}
+        height={5}
         showOnShallow={true}
       />
 
       <div className={styles.navbar}>
-        <h3>Admin Panel</h3>
+        <Link href="/admin">
+          <h3>Admin Panel</h3>
+        </Link>
         <div>
           <p onClick={logout} className={styles.logoutbtn}>
             Logout

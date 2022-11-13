@@ -6,15 +6,25 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 9999;
+  z-index: 99;
   top: 0px;
   position: fixed;
+  font-family: "Signika", sans-serif;
   left: 0;
   transition: 0.5s ease;
   border-bottom: 1px solid rgb(202, 202, 202);
+}
+.adminmenu {
+  display: none;
 }
 .navbar .logoutbtn {
   padding: 10xp;
   cursor: pointer;
   user-select: none;
+}
+@media only screen and (max-width: 850px) {
+  .navbar {
+    padding: 0px 20px;
+    height: 60px;
+  }
 }

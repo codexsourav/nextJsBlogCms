@@ -6,6 +6,7 @@ import { getDownloadURL, listAll, ref, uploadBytes } from "firebase/storage";
 import { v4 } from "uuid";
 import Image from "next/image";
 import styles from "../../siteconponent/adminConponent/styles/upload.module.css";
+import Swal from "sweetalert2/dist/sweetalert2.js";
 
 function Upload() {
   const [File, setFile] = useState(null);
@@ -26,7 +27,7 @@ function Upload() {
       const imgref = ref(storage, `images/${v4() + File.name}`);
       uploadBytes(imgref, File)
         .then((e) => {
-          alert("image Uplaoded");
+          Swal.fire("Image Is Uploaded", "", "success");
           setFile(null);
           loadiamge();
         })
