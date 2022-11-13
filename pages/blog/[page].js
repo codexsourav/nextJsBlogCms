@@ -11,6 +11,7 @@ function Page(props) {
       <>
         <Head>
           <title> 404 | Page Not Found</title>
+          <link rel="shortcut icon" href="/favicon.ico" />
         </Head>
         <div
           className="container"
@@ -41,6 +42,7 @@ function Page(props) {
         <meta name="og:image" content={blog.poster} />
         <meta name="og:site_name" content="codex souarv" />
         <meta name="og:description" content={blog.desc} />
+        <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
       <div className={styles.mainbox}>
         <div className={styles.postinfobox}>

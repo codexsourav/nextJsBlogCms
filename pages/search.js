@@ -7,6 +7,7 @@ function Search() {
     <>
       <Head>
         <title>Codex Sourav | Search On Blog</title>
+        <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
 
       <br />

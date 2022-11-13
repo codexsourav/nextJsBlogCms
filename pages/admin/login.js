@@ -35,6 +35,7 @@ function Login() {
     <div className="container">
       <Head>
         <title>Codex Sourav | Login</title>
+        <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
       <div className={styles.loginbox}>
         <h1>Login Admin Panel</h1>

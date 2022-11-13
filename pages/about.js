@@ -6,6 +6,7 @@ function About() {
     <>
       <Head>
         <title>Codex Souarv | About Me</title>
+        <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
 
       <div className="container">
