@@ -34,7 +34,7 @@ function Page(props) {
         <meta name="description" content={blog.desc} />
         <meta name="keywords" content={blog.tags} />
         <meta name="author" content={blog.auther} />
-
+        <meta http-equiv="content-language" content="en" />
         <meta name="og:title" content={blog.title} />
         <meta name="og:type" content={blog.cate} />
         <meta name="og:url" content={process.env.HOST + "/" + blog.uri} />
