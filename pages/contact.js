@@ -2,13 +2,14 @@ import React, { useState } from "react";
 
 import styles from "../siteconponent/blogcomponent/comStyles/contact.module.css";
 import Head from "next/head";
+import Swal from "sweetalert2/dist/sweetalert2.js";
 
 function Contact() {
   const [name, setname] = useState("");
   const [email, setemail] = useState("");
   const [message, setmessage] = useState("");
   const [error, seterror] = useState("");
-
+  const [btnp, setbtnp] = useState("Send Email");
   const validateEmail = (email) => {
     return String(email)
       .toLowerCase()
@@ -37,7 +38,7 @@ function Contact() {
       return false;
     }
     seterror("");
-
+    setbtnp("Sending...");
     let url = "/api/contact";
 
     let options = {
@@ -54,10 +55,11 @@ function Contact() {
       .then((res) => res.json())
       .then((json) => {
         if (json.add == true) {
-          alert("Your Message Is Send");
+          Swal.fire("Your Message Is Send", "", "success");
           setemail("");
           setmessage("");
           setname("");
+          setbtnp("Send Email");
         }
       })
       .catch((err) => console.error("error:" + err));
@@ -131,7 +133,7 @@ function Contact() {
               submitContact();
             }}
           >
-            Send Mail
+            {btnp}
           </button>
         </div>
       </div>
