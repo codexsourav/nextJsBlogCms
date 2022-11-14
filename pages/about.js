@@ -66,6 +66,7 @@ function About() {
                 <li>
                   <a href="https://www.facebook.com/fbinsourav">
                     <Image
+                    alt="facebook"
                       src="/icons/facebook_lite.png"
                       width={40}
                       height={40}
@@ -74,22 +75,22 @@ function About() {
                 </li>
                 <li>
                   <a href="https://www.instagram.com/codexsourav/">
-                    <Image src="/icons/instander.png" width={40} height={40} />
+                    <Image src="/icons/instander.png" width={40} height={40} alt='instagram' />
                   </a>
                 </li>
                 <li>
                   <a href="https://mobile.twitter.com/Sourav57394940">
-                    <Image src="/icons/twitter.png" width={40} height={40} />
+                    <Image src="/icons/twitter.png" width={40} height={40} alt='twitter' />
                   </a>
                 </li>
                 <li>
                   <a href="https://github.com/codexsourav">
-                    <Image src="/icons/github.png" width={40} height={40} />
+                    <Image src="/icons/github.png" width={40} height={40} alt="github" />
                   </a>
                 </li>
                 <li>
                   <a href="https://www.youtube.com/channel/UCENvANETSckCOAonuFMGYiw/">
-                    <Image src="/icons/youtube.png" width={40} height={40} />
+                    <Image src="/icons/youtube.png" width={40} height={40} alt="youtube" />
                   </a>
                 </li>
               </ul>
