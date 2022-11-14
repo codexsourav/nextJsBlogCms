@@ -1,11 +1,15 @@
 import Head from "next/head";
-import React from "react";
+import Image from "next/image";
+import React, { useState } from "react";
 
 import Navbar from "../../siteconponent/blogcomponent/Navbar";
+import Share from "../../siteconponent/blogcomponent/share";
 import styles from "./blog.module.css";
+
 function Page(props) {
-  console.log(props);
   const blog = props.data;
+  const host = props.host + "/blog/" + blog.uri;
+
   if (blog.error) {
     return (
       <>
@@ -35,6 +39,7 @@ function Page(props) {
         <meta name="description" content={blog.desc} />
         <meta name="keywords" content={blog.tags} />
         <meta name="author" content={blog.auther} />
+        <meta name="robots" content="index,follow" />
         <meta http-equiv="content-language" content="en" />
         <meta name="og:title" content={blog.title} />
         <meta name="og:type" content={blog.cate} />
@@ -44,6 +49,7 @@ function Page(props) {
         <meta name="og:description" content={blog.desc} />
         <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
+
       <div className={styles.mainbox}>
         <div className={styles.postinfobox}>
           <div className={styles.tit}>
@@ -58,7 +64,14 @@ function Page(props) {
           className={`${styles.postinfobox} ${styles.content}`}
           dangerouslySetInnerHTML={{ __html: blog.content }}
         ></div>
+        <div className={`${styles.postinfobox}`}>
+          <div className={`${styles.sharezone}`}>
+            <Share title={blog.title} poster={blog.poster} host={host} />
+          </div>
+        </div>
       </div>
+      <br />
+      <br />
     </>
   );
 }
@@ -81,7 +94,7 @@ export async function getServerSideProps(context) {
 
   const data = await get.json();
 
-  return { props: { data } };
+  return { props: { data, host } };
 }
 
 export default Page;

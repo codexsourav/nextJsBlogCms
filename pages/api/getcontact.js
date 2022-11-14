@@ -1,5 +1,5 @@
 import ContactSchema from "../../database/contactSchema";
-import jwt from "jsonwebtoken";
+
 import authuser from "./authsts";
 export default function handler(req, res) {
   if (req.method === "POST") {

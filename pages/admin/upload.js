@@ -50,7 +50,7 @@ function Upload() {
       <Adminnavbar />
       <Sidebar />
       <div className="container-admin">
-        <label tyle={{ display: "block", marginTop: 30, marginBottom: 30 }}>
+        <label style={{ display: "block", marginTop: 30, marginBottom: 10 }}>
           Upload Image
         </label>
         <input

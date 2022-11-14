@@ -67,6 +67,7 @@ function Contact() {
     <>
       <Head>
         <title>Codex Sourav | Contact Me</title>
+        <meta name="robots" content="index,follow" />
         <link rel="shortcut icon" href="/favicon.ico" />
         <meta content={process.env.HOST} property="og:url" />
         <meta

@@ -1,22 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 
 import styles from "../siteconponent/blogcomponent/comStyles/search.module.css";
 import Head from "next/head";
+import Router from "next/router";
 function Search() {
+  const [err, seterr] = useState("");
+  const [val, setval] = useState("");
+
+  const searchItem = () => {
+    if (val.length <= 3) {
+      seterr("Enter More Search Info..");
+      return false;
+    } else {
+      seterr("");
+      Router.push("/blog/search/" + val);
+    }
+  };
+
   return (
     <>
       <Head>
         <title>Codex Sourav | Search On Blog</title>
         <link rel="shortcut icon" href="/favicon.ico" />
         <meta content={process.env.HOST} property="og:url" />
-        <meta
-          content="codexsourav is Mainly about Latest Trending Updates , Trending Topics , Local News, Gaming News , and many more that&amp;#039;s make you update"
-          property="og:description"
-        />
-        <meta
-          content="codexsourav is Mainly about Latest Trending Updates , Trending Topics , Local News, Gaming News , and many more that&amp;#039;s make you update"
-          name="description"
-        />
         <meta content="CodeX Sourav" property="og:site_name" />
         <meta content="website" property="og:type" />
         <meta content="CodeX Sourav" property="og:title" />
@@ -36,17 +42,27 @@ function Search() {
           <div className={styles.title}>
             <h3>Search your post</h3>
           </div>
+          {err ? (
+            <>
+              <p className="errortxt">{err}</p> <br />
+            </>
+          ) : null}
 
-          <form action="" method="post">
-            <input className="inp" />
-            <br />
-            <input
-              type="submit"
-              value="Search"
-              className={styles.btn}
-              placeholder="search Here..."
-            />
-          </form>
+          <input
+            className="inp"
+            value={val}
+            onChange={(e) => setval(e.target.value)}
+          />
+          <br />
+          <input
+            type="submit"
+            value="Search"
+            onClick={() => {
+              searchItem();
+            }}
+            className={styles.btn}
+            placeholder="search Here..."
+          />
         </div>
       </div>
     </>

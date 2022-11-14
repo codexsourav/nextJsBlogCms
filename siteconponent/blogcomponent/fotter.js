@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React, { useEffect, useState } from "react";
 
 function Fotter() {
@@ -23,13 +24,13 @@ function Fotter() {
         <div className="fotter-link">
           <ul>
             <li>
-              <a href="#">@instagram</a>
+              <a href="http://instagram.com/codexsourav">@instagram</a>
             </li>
             <li>
-              <a href="#">Privacy Policy</a>
+              <Link href="/privacypolicy">Privacy Policy</Link>
             </li>
             <li>
-              <a href="#">Contact Us</a>
+              <Link href="/contact">Contact Us</Link>
             </li>
           </ul>
         </div>

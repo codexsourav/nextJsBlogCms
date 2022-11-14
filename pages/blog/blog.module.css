@@ -29,6 +29,26 @@
   width: 50%;
   height: auto;
 }
+.sharezone {
+  float: left;
+  position: fixed;
+  left: 0;
+  top: 0;
+  border-radius: 20px;
+}
+.sharezone ul {
+  height: 100vh;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 6px 15px;
+  gap: 10px;
+  opacity: 0.7;
+  margin-top: 5px;
+}
+
 @media only screen and (max-width: 1050px) {
   .postinfobox {
     width: 800px;
@@ -47,8 +67,27 @@
   }
   .postinfobox {
     width: 100%;
+    border-bottom: none;
   }
   .mainbox {
     margin-top: 90px;
+  }
+
+  .sharezone {
+    float: none;
+    position: relative;
+  }
+  .sharezone ul {
+    height: 50px;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    padding: 6px 15px;
+    gap: 15px;
+    user-select: none;
+  }
+  .sharezone ul li img {
+    width: 40px;
+    height: 40px;
   }
 }

@@ -57,14 +57,7 @@ function Sidebar() {
             Contacts
           </Link>
         </li>
-        <li>
-          <Link
-            className={url == "seo" ? styles.active : null}
-            href="/admin/seo"
-          >
-            SEO
-          </Link>
-        </li>
+
         <li>
           <a
             className={styles.logoutbtn}

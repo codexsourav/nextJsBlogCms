@@ -1,20 +1,48 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
-import Postbox from "../siteconponent/blogcomponent/Postbox";
+import Postbox from "../../../siteconponent/blogcomponent/Postbox";
 import Head from "next/head";
-import styles from "../siteconponent/blogcomponent/comStyles/home.module.css";
+import styles from "../../../siteconponent/blogcomponent/comStyles/home.module.css";
+import { useRouter } from "next/router";
 
-function Index(props) {
-  let blogs = props.posts;
+function Find() {
+  const router = useRouter();
+  const { find } = router.query;
+
+  const [blogs, setblogs] = useState([]);
   const [load, setload] = useState(6);
+
   const loadmore = () => {
     setload((d) => d + 6);
   };
 
+  useEffect(() => {
+    let url = "/api/search";
+
+    let options = {
+      method: "POST",
+      headers: {
+        Accept: "*/*",
+
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ find: find }),
+    };
+
+    fetch(url, options)
+      .then((res) => res.json())
+      .then((json) => {
+        setblogs(json);
+      })
+      .catch((err) => console.error("error:" + err));
+  }, [find]);
+
   return (
     <div>
       <Head>
-        <title>Codex Sourav | Welcome To My Blog</title>
+        <title>Codex Sourav | Search {find}</title>
+        <link rel="shortcut icon" href="/favicon.ico" />
+        <meta content={process.env.HOST} property="og:url" />
         <meta
           content="codexsourav is Mainly about Latest Trending Updates , Trending Topics , Local News, Gaming News , and many more that&amp;#039;s make you update"
           property="og:description"
@@ -23,12 +51,6 @@ function Index(props) {
           content="codexsourav is Mainly about Latest Trending Updates , Trending Topics , Local News, Gaming News , and many more that&amp;#039;s make you update"
           name="description"
         />
-        <link rel="shortcut icon" href="/favicon.ico" />
-
-        <meta content={process.env.HOST} property="og:url" />
-
-        <meta name="robots" content="index,follow" />
-
         <meta content="CodeX Sourav" property="og:site_name" />
         <meta content="website" property="og:type" />
         <meta content="CodeX Sourav" property="og:title" />
@@ -43,7 +65,10 @@ function Index(props) {
       </Head>
 
       <div className={styles.postcontent} style={{ marginTop: 120 }}>
-        {blogs.end != true ? (
+        <div style={{ width: "100%", display: "block", textAlign: "center" }}>
+          <h2>Search : {find}</h2>
+        </div>
+        {!blogs.error ? (
           blogs.slice(0, load).map((d) => {
             return (
               <Postbox
@@ -76,21 +101,4 @@ function Index(props) {
   );
 }
 
-export async function getServerSideProps(context) {
-  let options = {
-    method: "GET",
-    headers: {
-      Accept: "*/*",
-    },
-  };
-
-  const host = process.env.HOST;
-  const data = await fetch(`${host}/api/posts`, options);
-  const posts = await data.json();
-
-  return {
-    props: { posts },
-  };
-}
-
-export default Index;
+export default Find;

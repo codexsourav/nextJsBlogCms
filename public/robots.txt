@@ -5,6 +5,7 @@ User-agent: *
 Disallow: /search
 Disallow: /admin
 Disallow: /api
+Disallow: /blog/search
 
 Allow: /
 
