@@ -34,7 +34,12 @@ function About() {
       <div className="container">
         <div className={styles.about}>
           <div className={styles.me}>
-            <Image src="/sourav.jpg" width={300} height={300} />
+            <Image
+              src="/sourav.jpg"
+              width={300}
+              height={300}
+              alt="codex sourav"
+            />
           </div>
           <div className={styles.content}>
             <h1 style={{ fontFamily: '"Signika", sans-serif' }}>
