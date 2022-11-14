@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Image from "next/image";
+import Script from "next/script";
 import React from "react";
 import styles from "../siteconponent/blogcomponent/comStyles/about.module.css";
 function About() {
@@ -30,7 +31,19 @@ function About() {
           name="twitter:description"
         />
       </Head>
-
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=G-2J3Z75K60V"
+        strategy="afterInteractive"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+           window.dataLayer = window.dataLayer || [];
+           function gtag(){dataLayer.push(arguments);}
+           gtag('js', new Date());
+         
+           gtag('config', 'G-2J3Z75K60V');
+        `}
+      </Script>
       <div className="container">
         <div className={styles.about}>
           <div className={styles.me}>
@@ -66,7 +79,7 @@ function About() {
                 <li>
                   <a href="https://www.facebook.com/fbinsourav">
                     <Image
-                    alt="facebook"
+                      alt="facebook"
                       src="/icons/facebook_lite.png"
                       width={40}
                       height={40}
@@ -75,22 +88,42 @@ function About() {
                 </li>
                 <li>
                   <a href="https://www.instagram.com/codexsourav/">
-                    <Image src="/icons/instander.png" width={40} height={40} alt='instagram' />
+                    <Image
+                      src="/icons/instander.png"
+                      width={40}
+                      height={40}
+                      alt="instagram"
+                    />
                   </a>
                 </li>
                 <li>
                   <a href="https://mobile.twitter.com/Sourav57394940">
-                    <Image src="/icons/twitter.png" width={40} height={40} alt='twitter' />
+                    <Image
+                      src="/icons/twitter.png"
+                      width={40}
+                      height={40}
+                      alt="twitter"
+                    />
                   </a>
                 </li>
                 <li>
                   <a href="https://github.com/codexsourav">
-                    <Image src="/icons/github.png" width={40} height={40} alt="github" />
+                    <Image
+                      src="/icons/github.png"
+                      width={40}
+                      height={40}
+                      alt="github"
+                    />
                   </a>
                 </li>
                 <li>
                   <a href="https://www.youtube.com/channel/UCENvANETSckCOAonuFMGYiw/">
-                    <Image src="/icons/youtube.png" width={40} height={40} alt="youtube" />
+                    <Image
+                      src="/icons/youtube.png"
+                      width={40}
+                      height={40}
+                      alt="youtube"
+                    />
                   </a>
                 </li>
               </ul>

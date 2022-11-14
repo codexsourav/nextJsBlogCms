@@ -1,5 +1,6 @@
 import Head from "next/head";
-import Image from "next/image";
+
+import Script from "next/script";
 import React, { useState } from "react";
 
 import Navbar from "../../siteconponent/blogcomponent/Navbar";
@@ -49,7 +50,19 @@ function Page(props) {
         <meta name="og:description" content={blog.desc} />
         <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
-
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=G-2J3Z75K60V"
+        strategy="afterInteractive"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+           window.dataLayer = window.dataLayer || [];
+           function gtag(){dataLayer.push(arguments);}
+           gtag('js', new Date());
+         
+           gtag('config', 'G-2J3Z75K60V');
+        `}
+      </Script>
       <div className={styles.mainbox}>
         <div className={styles.postinfobox}>
           <div className={styles.tit}>

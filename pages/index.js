@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Postbox from "../siteconponent/blogcomponent/Postbox";
 import Head from "next/head";
 import styles from "../siteconponent/blogcomponent/comStyles/home.module.css";
+import Script from "next/script";
 
 function Index(props) {
   let blogs = props.posts;
@@ -24,11 +25,8 @@ function Index(props) {
           name="description"
         />
         <link rel="shortcut icon" href="/favicon.ico" />
-
         <meta content={process.env.HOST} property="og:url" />
-
         <meta name="robots" content="index,follow" />
-
         <meta content="CodeX Sourav" property="og:site_name" />
         <meta content="website" property="og:type" />
         <meta content="CodeX Sourav" property="og:title" />
@@ -41,7 +39,19 @@ function Index(props) {
           name="twitter:description"
         />
       </Head>
-
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=G-2J3Z75K60V"
+        strategy="afterInteractive"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+           window.dataLayer = window.dataLayer || [];
+           function gtag(){dataLayer.push(arguments);}
+           gtag('js', new Date());
+         
+           gtag('config', 'G-2J3Z75K60V');
+        `}
+      </Script>
       <div className={styles.postcontent} style={{ marginTop: 120 }}>
         {blogs.end != true ? (
           blogs.slice(0, load).map((d) => {
