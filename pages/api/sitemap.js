@@ -1,5 +1,5 @@
 import Postdata from "../../database/blogposts";
-
+import fs from "fs";
 export default function handler(req, res) {
   let data = [];
   Postdata.find(
@@ -42,6 +42,14 @@ export default function handler(req, res) {
       }
 
       if (data.length == result.length) {
+        fs.writeFileSync(
+          "./public/sitemap.xml",
+          `<?xml version='1.0' encoding='UTF-8'?>
+        <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>` +
+            OBJtoXML(data) +
+            `</urlset>`
+        );
+
         res.setHeader("Content-Type", "text/xml");
         res.send(
           `<?xml version='1.0' encoding='UTF-8'?>
