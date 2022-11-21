@@ -1,8 +1,7 @@
 import Postdata from "../../database/blogposts";
 import fs from "fs";
-
+import path from "path";
 export default function handler(req, res) {
-  console.log(__dirname);
   let data = [];
   Postdata.find(
     { view: 1 },
@@ -14,7 +13,7 @@ export default function handler(req, res) {
         const date = new Date(element.date);
         data[i] = {
           url: {
-            loc: process.env.HOST + "/blog/" + element.uri,
+            loc: "https://codexsourav.vercel.app/blog/" + element.uri,
             lastmod: date.toUTCString(),
           },
         };
@@ -45,7 +44,7 @@ export default function handler(req, res) {
 
       if (data.length == result.length) {
         fs.writeFileSync(
-          "../sitemap.xml",
+          "./public/sitemap.xml",
           `<?xml version='1.0' encoding='UTF-8'?>
         <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>` +
             OBJtoXML(data) +
