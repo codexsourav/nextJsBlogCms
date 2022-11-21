@@ -1,37 +1,58 @@
-import fs from "fs";
 import Postdata from "../../database/blogposts";
 
-export default async function handler(req, res) {
-  const data = await Postdata.find(
+export default function handler(req, res) {
+  let data = [];
+  Postdata.find(
     { view: 1 },
-    { content: 0, tags: 0, view: 0 }
-  );
+    { content: 0, tags: 0, view: 0, _id: 0, title: 0, desc: 0 }
+  )
+    .then((result) => {
+      for (let i = 0; i < result.length; i++) {
+        const element = result[i];
+        const date = new Date(element.date);
+        data[i] = {
+          url: {
+            loc: process.env.HOST + "/blog/" + element.uri,
+            lastmod: date.toUTCString(),
+          },
+        };
+      }
 
-  let xml = `<?xml version='1.0' encoding='UTF-8'?>
-  <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
-  `;
+      function OBJtoXML(obj) {
+        var xml = "";
+        for (var prop in obj) {
+          xml += "<" + prop + ">";
+          if (Array.isArray(obj[prop])) {
+            for (var array of obj[prop]) {
+              // A real botch fix here
+              xml += "</" + prop + ">";
+              xml += "<" + prop + ">";
 
-  fs.writeFile("public/sitemap.xml", xml, function (err) {
-    if (err) throw err;
+              xml += OBJtoXML(new Object(array));
+            }
+          } else if (typeof obj[prop] == "object") {
+            xml += OBJtoXML(new Object(obj[prop]));
+          } else {
+            xml += obj[prop];
+          }
+          xml += "</" + prop + ">";
+        }
+        var xml = xml.replace(/<\/?[0-9]{1,}>/g, "");
+        return xml;
+      }
 
-    for (let i = 0; i < data.length; i++) {
-      const element = data[i];
-      const datet = `${element.date.toString()}`;
-
-      let xmldata = ` 
-    <url>
-        <loc>${process.env.HOST + "/post/" + element.uri}</loc>
-        <lastmod>${datet}</lastmod>
-    </url>
-`;
-      fs.appendFile("public/sitemap.xml", xmldata, function (err) {
-        if (err) throw err;
-      });
-    }
-
-    fs.appendFile("public/sitemap.xml", `</urlset>`, function (err) {
-      if (err) throw err;
-      res.send("Updated Sitemap");
+      if (data.length == result.length) {
+        res.setHeader("Content-Type", "text/xml");
+        res.send(
+          `<?xml version='1.0' encoding='UTF-8'?>
+        <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>` +
+            OBJtoXML(data) +
+            `</urlset>`
+        );
+        res.end();
+      }
+    })
+    .catch((err) => {
+      res.send(err);
     });
-  });
 }
