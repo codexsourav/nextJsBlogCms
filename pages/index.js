@@ -38,6 +38,10 @@ function Index(props) {
           content="codexsourav is Mainly about Latest Trending Updates , Trending Topics , Local News, Gaming News , and many more that&amp;#039;s make you update"
           name="twitter:description"
         />
+        <meta
+          name="google-site-verification"
+          content="ZF8qUpgbcbsOzv2t3sBPBsu2nvPueKjGE4QLdyMftKM"
+        />
       </Head>
       <Script
         src="https://www.googletagmanager.com/gtag/js?id=G-2J3Z75K60V"
