@@ -2,7 +2,6 @@ import Postdata from "../../database/blogposts";
 import fs from "fs";
 import path from "path";
 export default function handler(req, res) {
-  const directoryPath = path.join(__dirname, "/../sitemap.xml");
   console.log(__dirname);
   let data = [];
   Postdata.find(
@@ -46,7 +45,7 @@ export default function handler(req, res) {
 
       if (data.length == result.length) {
         fs.writeFileSync(
-          directoryPath,
+          "./sitemap.xml",
           `<?xml version='1.0' encoding='UTF-8'?>
         <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>` +
             OBJtoXML(data) +
