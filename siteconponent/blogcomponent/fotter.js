@@ -19,9 +19,9 @@ function Fotter() {
 
   return (
     <fotter>
-      <div className={Show ? "fotter" : "fotter hidefotter"}>
-        <div className="copyright">@Codex Souarv</div>
-        <div className="fotter-link">
+      <section className={Show ? "fotter" : "fotter hidefotter"}>
+        <section className="copyright">@Codex Souarv</section>
+        <section className="fotter-link">
           <ul>
             <li>
               <a href="http://instagram.com/codexsourav">@instagram</a>
@@ -33,8 +33,8 @@ function Fotter() {
               <Link href="/contact">Contact Us</Link>
             </li>
           </ul>
-        </div>
-      </div>
+        </section>
+      </section>
     </fotter>
   );
 }
