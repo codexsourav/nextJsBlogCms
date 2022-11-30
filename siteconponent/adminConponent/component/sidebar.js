@@ -15,7 +15,6 @@ function Sidebar() {
     fetch(url, options)
       .then((res) => res.json())
       .then((json) => {
-        console.log(json.auth);
         if (json.auth == false) {
           Router.replace("/admin/login");
         }

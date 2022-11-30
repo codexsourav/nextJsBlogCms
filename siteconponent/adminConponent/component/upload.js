@@ -31,7 +31,6 @@ function Upload() {
           imglist[i] = { url, pathFb };
 
           if (imglength == i) {
-            console.log(imglist);
             setGetfile(imglist);
           }
         });
@@ -107,7 +106,6 @@ function Upload() {
         type="file"
         className="inp"
         onChange={(e) => {
-          console.log(e.target.files);
           setFile(e.target.files[0]);
         }}
         style={{ marginBottom: 30, marginTop: 20 }}
