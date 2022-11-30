@@ -18,24 +18,22 @@ function Fotter() {
   }, [lastScrollY]);
 
   return (
-    <fotter>
-      <section className={Show ? "fotter" : "fotter hidefotter"}>
-        <p className="copyright">@Codex Souarv</p>
-        <div className="fotter-link">
-          <ul>
-            <li>
-              <a href="http://instagram.com/codexsourav">@instagram</a>
-            </li>
-            <li>
-              <Link href="/privacypolicy">Privacy Policy</Link>
-            </li>
-            <li>
-              <Link href="/contact">Contact Us</Link>
-            </li>
-          </ul>
-        </div>
-      </section>
-    </fotter>
+    <section className={Show ? "fotter" : "fotter hidefotter"}>
+      <p className="copyright">@Codex Souarv</p>
+      <div className="fotter-link">
+        <ul>
+          <li>
+            <a href="http://instagram.com/codexsourav">@instagram</a>
+          </li>
+          <li>
+            <Link href="/privacypolicy">Privacy Policy</Link>
+          </li>
+          <li>
+            <Link href="/contact">Contact Us</Link>
+          </li>
+        </ul>
+      </div>
+    </section>
   );
 }
 
