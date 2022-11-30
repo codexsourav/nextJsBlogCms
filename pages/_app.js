@@ -15,7 +15,7 @@ function MyApp({ Component, pageProps }) {
       <Head>
         <title>CodeX Sourav</title>
       </Head>
-      {url != "admin" ? (
+      {url != "admin" && url != "sitemap.xml" ? (
         <>
           <Navbar /> <Component {...pageProps} /> <Fotter />
         </>
