@@ -21,7 +21,7 @@ function Postbox(props) {
         <p>{props.cate}</p>
       </div>
       <div className={styles.title}>
-        <h2>{props.title}</h2>
+        <h1>{props.title}</h1>
       </div>
       <div className={styles.desc}>
         <p>{props.desc}</p>
