@@ -9,5 +9,5 @@ Disallow: /blog/search
 
 Allow: /
 
-Sitemap: https://codexsourav.vercel.app/api/sitemap
+Sitemap: https://codexsourav.vercel.app/sitemap.xml
 
