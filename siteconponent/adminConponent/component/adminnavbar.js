@@ -1,6 +1,5 @@
 import Router from "next/router";
 import styles from "./compocss/adminnav.module.css";
-import "./authsts";
 import React from "react";
 import NextNProgress from "nextjs-progressbar";
 import Link from "next/link";
@@ -21,6 +20,7 @@ function Adminnavbar() {
       })
       .catch((err) => console.error("error:" + err));
   };
+
   return (
     <>
       <NextNProgress

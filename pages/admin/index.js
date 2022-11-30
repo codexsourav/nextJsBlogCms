@@ -8,7 +8,7 @@ import styles from "../../siteconponent/blogcomponent/comStyles/home.module.css"
 function Index(props) {
   const post = props.posts;
   const [posts, setposts] = useState([]);
-  console.log(post);
+
   useEffect(() => {
     setposts(post);
   }, [post]);
@@ -67,7 +67,14 @@ export async function getServerSideProps(context) {
   const host = process.env.HOST;
   const data = await fetch(host + "/api/adminposts", options);
   const posts = await data.json();
-
+  if (posts.auth == false) {
+    return {
+      redirect: {
+        permanent: true,
+        destination: "/admin/login",
+      },
+    };
+  }
   return {
     props: { posts },
   };

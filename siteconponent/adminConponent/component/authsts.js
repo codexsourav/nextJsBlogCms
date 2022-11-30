@@ -12,7 +12,7 @@ fetch(url, options)
   .then((res) => res.json())
   .then((json) => {
     if (json.auth != true) {
-      Router.replace("/admin/login");
+      // Router.replace("/admin/login");
     }
   })
   .catch((err) => console.error("error:" + err));

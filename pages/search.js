@@ -8,7 +8,7 @@ function Search() {
   const [val, setval] = useState("");
 
   const searchItem = () => {
-    if (val.length <= 3) {
+    if (val.length <= 2) {
       seterr("Enter More Search Info..");
       return false;
     } else {
@@ -22,6 +22,7 @@ function Search() {
       <Head>
         <title>Codex Sourav | Search On Blog</title>
         <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" href="/favicon.ico" />
         <meta content={process.env.HOST} property="og:url" />
         <meta content="CodeX Sourav" property="og:site_name" />
         <meta content="website" property="og:type" />

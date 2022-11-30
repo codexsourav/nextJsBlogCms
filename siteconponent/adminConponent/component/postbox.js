@@ -46,18 +46,18 @@ function Postbox(props) {
       {del ? (
         <>
           <Link href={`/admin/update/${props.id}`} className="clbtn">
-            Update
+            UPDATE
           </Link>
 
           <button
             style={{ marginLeft: 20 }}
-            href="#"
+            disabled={!del}
             onClick={() => {
               deletedata();
             }}
-            className="rclbtn"
+            className={del ? "rclbtn" : "disbtn"}
           >
-            Delete
+            {!del ? "DEL..." : "DELETE"}
           </button>
         </>
       ) : null}

@@ -20,7 +20,7 @@ function Contact() {
 
   const submitContact = () => {
     if ((!name, !email, !message)) {
-      seterror("Please Fill Add Inputs");
+      seterror("Please Fill All Inputs");
       return false;
     }
     if (name.length < 4) {
@@ -71,6 +71,7 @@ function Contact() {
         <title>Codex Sourav | Contact Me</title>
         <meta name="robots" content="index,follow" />
         <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" href="/favicon.ico" />
         <meta content={process.env.HOST} property="og:url" />
         <meta
           content="codexsourav is Mainly about Latest Trending Updates , Trending Topics , Local News, Gaming News , and many more that&amp;#039;s make you update"

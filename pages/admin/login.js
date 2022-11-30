@@ -7,8 +7,10 @@ function Login() {
   const [uname, setUname] = useState("");
   const [pass, setPass] = useState("");
   const [serdata, setres] = useState();
+  const [load, setload] = useState(false);
 
   const formHandel = () => {
+    setload(true);
     let url = "/api/login";
 
     let options = {
@@ -23,6 +25,7 @@ function Login() {
     fetch(url, options)
       .then((res) => res.json())
       .then((json) => {
+        setload(false);
         setres(json);
         if (json.login == true) {
           Router.replace("/admin");
@@ -61,9 +64,13 @@ function Login() {
             }}
           />
           <br />
-
-          <button className={styles.btn} onClick={formHandel}>
-            Login
+          <br />
+          <button
+            className={load ? "disbtn" : "clbtn"}
+            onClick={formHandel}
+            disabled={load}
+          >
+            {load ? "Chacking.." : "Login"}
           </button>
         </div>
       </div>
@@ -71,4 +78,29 @@ function Login() {
   );
 }
 
+export async function getServerSideProps(context) {
+  const cook = context.req.cookies;
+
+  let options = {
+    method: "POST",
+    headers: {
+      Accept: "*/*",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ cook }),
+  };
+  const host = process.env.HOST;
+  const data = await fetch(host + "/api/adminposts", options);
+  const authg = await data.json();
+
+  if (authg.auth != false) {
+    return {
+      redirect: {
+        permanent: true,
+        destination: "/admin",
+      },
+    };
+  }
+  return { props: { auth: true } };
+}
 export default Login;

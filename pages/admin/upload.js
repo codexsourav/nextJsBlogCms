@@ -1,98 +1,43 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Adminnavbar from "../../siteconponent/adminConponent/component/adminnavbar";
 import Sidebar from "../../siteconponent/adminConponent/component/sidebar";
-import { storage } from "../../firebase";
-import { getDownloadURL, listAll, ref, uploadBytes } from "firebase/storage";
-import { v4 } from "uuid";
-import Image from "next/image";
-import styles from "../../siteconponent/adminConponent/styles/upload.module.css";
-import Swal from "sweetalert2/dist/sweetalert2.js";
+import Upload from "../../siteconponent/adminConponent/component/upload";
 
-function Upload() {
-  const [File, setFile] = useState(null);
-  const [getfile, setGetfile] = useState([]);
-
-  const loadiamge = () => {
-    listAll(ref(storage, "/images")).then((data) => {
-      data.items.forEach((item) => {
-        getDownloadURL(item).then((url) => {
-          setGetfile((prev) => [...prev, url]);
-        });
-      });
-    });
-  };
-
-  const uplaodimg = () => {
-    if (File != null) {
-      const imgref = ref(storage, `images/${v4() + File.name}`);
-      uploadBytes(imgref, File)
-        .then((e) => {
-          Swal.fire("Image Is Uploaded", "", "success");
-          setFile(null);
-          loadiamge();
-        })
-        .catch((e) => {
-          console.log(e);
-        });
-    }
-  };
-
-  useEffect(() => {
-    loadiamge();
-  }, []);
-
-  function removeDuplicates(arr) {
-    return [...new Set(arr)];
-  }
-
+function upload() {
   return (
     <>
       <Adminnavbar />
-      <Sidebar />
       <div className="container-admin">
-        <label style={{ display: "block", marginTop: 30, marginBottom: 10 }}>
-          Upload Image
-        </label>
-        <input
-          type="file"
-          className="inp"
-          onChange={(e) => {
-            setFile(e.target.files[0]);
-          }}
-          style={{ marginBottom: 30, marginTop: 20 }}
-        />
-        <button
-          className="clbtn"
-          onClick={() => {
-            uplaodimg();
-          }}
-        >
-          Uplaod Image
-        </button>
-        <br />
-        <div className={styles.img}>
-          {getfile
-            ? removeDuplicates(getfile).map((d) => {
-                return (
-                  <div style={{ width: 200 }} key={d}>
-                    <input value={d} className="inp" />
-                    <Image
-                      alt="Google Firebase"
-                      src={d}
-                      width={300}
-                      height={150}
-                      layout="responsive"
-                    />
-                  </div>
-                );
-              })
-            : () => {
-                return <p>NO Image Found</p>;
-              }}
-        </div>
+        <Upload />
       </div>
+      <Sidebar />
     </>
   );
 }
 
-export default Upload;
+export async function getServerSideProps(context) {
+  const cook = context.req.cookies;
+
+  let options = {
+    method: "POST",
+    headers: {
+      Accept: "*/*",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ cook }),
+  };
+  const host = process.env.HOST;
+  const data = await fetch(host + "/api/adminposts", options);
+  const authg = await data.json();
+
+  if (authg.auth == false) {
+    return {
+      redirect: {
+        permanent: true,
+        destination: "/admin/login",
+      },
+    };
+  }
+  return { props: { auth: true } };
+}
+export default upload;

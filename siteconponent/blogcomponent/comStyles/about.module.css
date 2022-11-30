@@ -46,9 +46,8 @@
   opacity: 0.5;
 }
 .socail ul li a img:hover {
-  width: 50px;
   opacity: 1;
-  height: 50px;
+  margin-top: -10px;
 }
 
 @media only screen and (max-width: 850px) {

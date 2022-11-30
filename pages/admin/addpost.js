@@ -8,6 +8,7 @@ const Editor = dynamic(
   { ssr: false }
 );
 import Swal from "sweetalert2/dist/sweetalert2.js";
+import Imgget from "../../siteconponent/adminConponent/component/Imgget";
 
 function Addpost() {
   const [content, setcontent] = useState("");
@@ -19,12 +20,13 @@ function Addpost() {
   const [auther, setauther] = useState("Sourav");
   const [cate, setcate] = useState("");
   const [view, setview] = useState(-1);
-
+  const [Laod, setLaod] = useState(false);
   const [error, seterror] = useState("");
 
   // add post function
 
   const addnewpost = () => {
+    setLaod(true);
     let url = "/api/addpost";
 
     let options = {
@@ -50,7 +52,7 @@ function Addpost() {
     fetch(url, options)
       .then((res) => res.json())
       .then((json) => {
-        console.log(json);
+        setLaod(false);
         if (json.auth == false) {
           Router.replace("/admin/login");
           return false;
@@ -69,6 +71,7 @@ function Addpost() {
     <>
       <Adminnavbar />
       <Sidebar />
+      <Imgget />
       <div className="container-admin">
         <div className="errortxt">{error}</div>
         <label style={{ display: "block", marginTop: 30, marginBottom: 10 }}>
@@ -179,16 +182,42 @@ function Addpost() {
         </select>
 
         <button
-          className="clbtn"
+          disabled={Laod}
+          className={!Laod ? "clbtn" : "disbtn"}
           onClick={() => {
             addnewpost();
           }}
         >
-          Add Your Post
+          {!Laod ? "Add Your Post" : "Adding..."}
         </button>
       </div>
     </>
   );
 }
 
+export async function getServerSideProps(context) {
+  const cook = context.req.cookies;
+
+  let options = {
+    method: "POST",
+    headers: {
+      Accept: "*/*",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ cook }),
+  };
+  const host = process.env.HOST;
+  const data = await fetch(host + "/api/adminposts", options);
+  const authg = await data.json();
+
+  if (authg.auth == false) {
+    return {
+      redirect: {
+        permanent: true,
+        destination: "/admin/login",
+      },
+    };
+  }
+  return { props: { auth: true } };
+}
 export default Addpost;

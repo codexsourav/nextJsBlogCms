@@ -6,6 +6,7 @@ export default function Custom404() {
       <Head>
         <title> 404 | Page Not Found</title>
         <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" href="/favicon.ico" />
       </Head>
       <div
         className="container"

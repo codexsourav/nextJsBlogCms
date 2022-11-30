@@ -9,6 +9,7 @@ function About() {
       <Head>
         <title>Codex Souarv | About Me</title>
         <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" href="/favicon.ico" />
         <meta name="robots" content="index,follow" />
         <meta content={process.env.HOST} property="og:url" />
         <meta
@@ -71,10 +72,11 @@ function About() {
                 textAlign: "justify",
               }}
             >
-              I am a young boy with a passion for Web Devloper, I love creating
-              Ui Backend Api, I strive to improve myself and am working toward
-              creating own, unique style. I have Skill About Html ,Css,
-              javaScript,php,node,react js,next js Etc.Show My Works On
+              I am a young boy with a passionate full stack developer from
+              India, I love creating Ui Backend Api, I strive to improve myself
+              and am working toward creating own, unique style. I have Skill
+              About Html ,Css, javaScript,php,node,react js,next js Etc.Show My
+              Works On
               <a href="http://github.com/codexsourav"> Github </a>
               :)
             </p>

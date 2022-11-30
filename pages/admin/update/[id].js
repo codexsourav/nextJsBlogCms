@@ -8,6 +8,7 @@ const Editor = dynamic(
   { ssr: false }
 );
 import Swal from "sweetalert2/dist/sweetalert2.js";
+import Imgget from "../../../siteconponent/adminConponent/component/Imgget";
 
 function Update() {
   const roues = useRouter();
@@ -24,7 +25,7 @@ function Update() {
   const [view, setview] = useState(-1);
   const [error, seterror] = useState("");
   const [pid, setpid] = useState("");
-
+  const [load, setLoad] = useState(false);
   useEffect(() => {
     let url = "/api/blog";
     let options = {
@@ -58,6 +59,7 @@ function Update() {
   }, [id]);
 
   const upadtepost = () => {
+    setLoad(true);
     let url = "/api/update";
 
     let options = {
@@ -83,6 +85,7 @@ function Update() {
     fetch(url, options)
       .then((res) => res.json())
       .then((json) => {
+        setLoad(false);
         if (json.error) {
           seterror(json.err.error);
         } else {
@@ -100,6 +103,7 @@ function Update() {
     <>
       <Adminnavbar />
       <Sidebar />
+      <Imgget />
       <div className="container-admin">
         <div className="errortxt">{error}</div>
 
@@ -211,15 +215,43 @@ function Update() {
         </select>
 
         <button
-          className="clbtn"
+          disabled={load}
+          className={!load ? "clbtn" : "disbtn"}
           onClick={() => {
             upadtepost();
           }}
         >
-          Update Your Post
+          {!load ? "Update Your Post" : "Updateing..."}
         </button>
       </div>
     </>
   );
 }
+
+export async function getServerSideProps(context) {
+  const cook = context.req.cookies;
+
+  let options = {
+    method: "POST",
+    headers: {
+      Accept: "*/*",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ cook }),
+  };
+  const host = process.env.HOST;
+  const data = await fetch(host + "/api/adminposts", options);
+  const authg = await data.json();
+
+  if (authg.auth == false) {
+    return {
+      redirect: {
+        permanent: true,
+        destination: "/admin/login",
+      },
+    };
+  }
+  return { props: { auth: true } };
+}
+
 export default Update;

@@ -7,8 +7,45 @@
   flex-wrap: wrap;
   align-items: center;
 }
+.deleteicon,
+.copyicon {
+  background-color: rgb(153, 83, 83);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 18px;
+  font-family: Arial, Helvetica, sans-serif;
+  transition: 0.5s;
+}
+.copyicon {
+  background-color: rgb(65, 141, 94);
+}
+.deleteicon:hover {
+  background-color: rgb(179, 32, 32);
+}
+.deleteicon span,
+.copyicon span {
+  margin-left: 10px;
+  font-size: 13px;
+}
+.querybox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.imageshow {
+  width: 200px !important;
+  height: auto;
+}
 @media only screen and (max-width: 850px) {
   .img div {
     width: 300px !important;
+  }
+  .imageshow {
+    width: 100% !important;
+    height: auto;
   }
 }

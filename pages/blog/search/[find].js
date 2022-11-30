@@ -68,6 +68,8 @@ function Find() {
         <div style={{ width: "100%", display: "block", textAlign: "center" }}>
           <h2>Search : {find}</h2>
         </div>
+        {blogs.length == 0 ? <p>Searching...</p> : null}
+
         {!blogs.error ? (
           blogs.slice(0, load).map((d) => {
             return (

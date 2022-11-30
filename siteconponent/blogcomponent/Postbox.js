@@ -9,12 +9,12 @@ function Postbox(props) {
       <div className={styles.imagesec}>
         <Image
           src={props.poster}
-          width="100"
-          layout="responsive"
+          width="300"
           objectFit="contain"
-          height="100"
+          height="300"
           alt={props.cate + " image"}
-          loading="lazy"
+          quality={30}
+          priority
         />
       </div>
       <div className={styles.cate}>

@@ -52,7 +52,7 @@ function Share(props) {
       </li>
       <li>
         <a
-          href={"https://web.whatsapp.com/send?text= " + title + " | " + host}
+          href={"whatsapp://send?text= " + title + " | " + host}
           target="blank"
         >
           <Image width={45} height={45} src="/icons/whatsapp.png" />

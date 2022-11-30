@@ -13,10 +13,11 @@
   overflow: hidden;
 }
 .mainbox .imagesec img {
-  height: 600px;
-  width: 400px;
+  width: 350px;
+  max-height: 200px;
   scale: calc(105%);
   transition: 0.5s;
+  background-color: rgb(241, 241, 241);
 }
 .mainbox .imagesec img:hover {
   scale: calc(108%);
