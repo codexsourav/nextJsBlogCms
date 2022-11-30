@@ -18,7 +18,7 @@ function Fotter() {
   }, [lastScrollY]);
 
   return (
-    <section className={Show ? "fotter" : "fotter hidefotter"}>
+    <div className={Show ? "fotter" : "fotter hidefotter"}>
       <p className="copyright">@Codex Souarv</p>
       <div className="fotter-link">
         <ul>
@@ -33,7 +33,7 @@ function Fotter() {
           </li>
         </ul>
       </div>
-    </section>
+    </div>
   );
 }
 
