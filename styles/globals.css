@@ -3,7 +3,9 @@
 ::-webkit-scrollbar {
   display: none;
 }
-
+html {
+  scroll-behavior: smooth;
+}
 a {
   color: inherit;
   text-decoration: none;
@@ -67,41 +69,39 @@ body {
 }
 .container-admin table tr td {
   text-align: center;
-
   padding: 6px 10px;
   border: 1px solid gray;
 }
-.clbtn {
+.clbtn,
+.clbtn2,
+.disbtn,
+.rclbtn {
+  font-family: Arial, Helvetica, sans-serif;
   width: 190px;
   padding: 15px 25px;
-  cursor: pointer;
   border: 0;
-  background-color: #7066e0;
+  font-size: 15px;
+  background-color: #207d94;
   color: #fff;
   user-select: none;
   border-radius: 8px;
+  height: 50px;
+  cursor: pointer;
+  margin: 20px 0px;
+}
+.clbtn2 {
+  background-color: #865628;
 }
 
 .disbtn {
-  width: 190px;
-  padding: 15px 25px;
   cursor: progress;
-  border: 0;
-  background-color: #54517269;
-  color: #fff;
-  user-select: none;
-  border-radius: 8px;
+  background-color: #207d9473;
 }
 
 .rclbtn {
-  width: 100px !important;
-  padding: 15px 25px;
+  width: 120px !important;
   cursor: pointer;
-  border: 0;
   background-color: #ca1b1b;
-  color: #fff;
-  border-radius: 8px;
-  user-select: none;
 }
 .fotter {
   width: 100%;
@@ -213,6 +213,18 @@ body {
 .buttonDownload:hover:after {
   border-top-color: #4cc713;
   animation-play-state: running;
+}
+.spin {
+  animation: spiner 2s linear infinite;
+  /* background-color: #4a9b25; */
+}
+@keyframes spiner {
+  from {
+    rotate: 0deg;
+  }
+  to {
+    rotate: 360deg;
+  }
 }
 
 /* keyframes for the download icon anim */

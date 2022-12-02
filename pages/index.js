@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Postbox from "../siteconponent/blogcomponent/Postbox";
 import Head from "next/head";
 import styles from "../siteconponent/blogcomponent/comStyles/home.module.css";
-
+import BlogFotter from "../siteconponent/blogcomponent/blogfotter";
 function Index(props) {
   let blogs = props.posts;
   const [load, setload] = useState(6);
@@ -12,7 +12,7 @@ function Index(props) {
   };
 
   return (
-    <div>
+    <>
       <Head>
         <title>Codex Sourav | Welcome To My Blog</title>
         <meta
@@ -74,7 +74,9 @@ function Index(props) {
           </button>
         ) : null}
       </div>
-    </div>
+      <br />
+      <BlogFotter />
+    </>
   );
 }
 

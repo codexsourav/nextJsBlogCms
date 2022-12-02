@@ -77,13 +77,15 @@ function About() {
               and am working toward creating own, unique style. I have Skill
               About Html ,Css, javaScript,php,node,react js,next js Etc.Show My
               Works On
-              <a href="http://github.com/codexsourav"> Github </a>
+              <a target="blank" href="http://github.com/codexsourav">
+                Github
+              </a>
               :)
             </p>
             <div className={styles.socail}>
               <ul>
                 <li>
-                  <a href="https://www.facebook.com/fbinsourav">
+                  <a target="blank" href="https://www.facebook.com/fbinsourav">
                     <Image
                       alt="facebook"
                       src="/icons/facebook_lite.png"
@@ -93,7 +95,10 @@ function About() {
                   </a>
                 </li>
                 <li>
-                  <a href="https://www.instagram.com/codexsourav/">
+                  <a
+                    target="blank"
+                    href="https://www.instagram.com/codexsourav/"
+                  >
                     <Image
                       src="/icons/instander.png"
                       width={40}
@@ -103,7 +108,10 @@ function About() {
                   </a>
                 </li>
                 <li>
-                  <a href="https://mobile.twitter.com/Sourav57394940">
+                  <a
+                    target="blank"
+                    href="https://mobile.twitter.com/Sourav57394940"
+                  >
                     <Image
                       src="/icons/twitter.png"
                       width={40}
@@ -113,7 +121,7 @@ function About() {
                   </a>
                 </li>
                 <li>
-                  <a href="https://github.com/codexsourav">
+                  <a target="blank" href="https://github.com/codexsourav">
                     <Image
                       src="/icons/github.png"
                       width={40}
@@ -123,7 +131,10 @@ function About() {
                   </a>
                 </li>
                 <li>
-                  <a href="https://www.youtube.com/channel/UCENvANETSckCOAonuFMGYiw/">
+                  <a
+                    target="blank"
+                    href="https://www.youtube.com/channel/UCENvANETSckCOAonuFMGYiw/"
+                  >
                     <Image
                       src="/icons/youtube.png"
                       width={40}

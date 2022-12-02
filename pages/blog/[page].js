@@ -1,11 +1,12 @@
 import Head from "next/head";
-
-import Script from "next/script";
-import React, { useState } from "react";
+import React from "react";
 
 import Navbar from "../../siteconponent/blogcomponent/Navbar";
 import Share from "../../siteconponent/blogcomponent/share";
+import Tags from "../../siteconponent/blogcomponent/tags";
+import Comment from "../../siteconponent/blogcomponent/comment/comment";
 import styles from "./blog.module.css";
+import Blogfotter from "../../siteconponent/blogcomponent/blogfotter";
 
 function Page(props) {
   const blog = props.data;
@@ -50,19 +51,7 @@ function Page(props) {
         <meta name="og:description" content={blog.desc} />
         <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
-      <Script
-        src="https://www.googletagmanager.com/gtag/js?id=G-2J3Z75K60V"
-        strategy="afterInteractive"
-      />
-      <Script id="google-analytics" strategy="afterInteractive">
-        {`
-           window.dataLayer = window.dataLayer || [];
-           function gtag(){dataLayer.push(arguments);}
-           gtag('js', new Date());
-         
-           gtag('config', 'G-2J3Z75K60V');
-        `}
-      </Script>
+
       <div className={styles.mainbox}>
         <div className={styles.postinfobox}>
           <div className={styles.tit}>
@@ -73,18 +62,21 @@ function Page(props) {
             <div className="date">{blog.maindate}</div>
           </div>
         </div>
-        <div
-          className={`${styles.postinfobox} ${styles.content}`}
-          dangerouslySetInnerHTML={{ __html: blog.content }}
-        ></div>
+        <div className={`${styles.postinfobox} ${styles.content}`}>
+          <div dangerouslySetInnerHTML={{ __html: blog.content }}></div>
+          <Tags tags={blog.tags} />
+        </div>
+        <div className={`${styles.sharezone}`}>
+          <Share title={blog.title} poster={blog.poster} host={host} />
+        </div>
         <div className={`${styles.postinfobox}`}>
-          <div className={`${styles.sharezone}`}>
-            <Share title={blog.title} poster={blog.poster} host={host} />
-          </div>
+          <Comment postid={blog._id} />
         </div>
       </div>
+
       <br />
       <br />
+      <Blogfotter />
     </>
   );
 }

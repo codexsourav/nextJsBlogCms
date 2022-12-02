@@ -1,0 +1,162 @@
+.blogfotter {
+  width: 100%;
+  padding-bottom: 80px;
+  background-color: #f7f8f9;
+  font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI",
+    Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol" !important;
+}
+.blogfotter .backtop {
+  text-align: center;
+  padding: 40px;
+  display: block;
+  font-size: 25px;
+  margin-top: 80px;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: rgb(66, 66, 66);
+}
+.bottamsec {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+.bottamsec .title {
+  font-size: 22px;
+  margin-bottom: 40px;
+  color: rgb(66, 66, 66);
+  text-transform: uppercase;
+  font-weight: 300;
+  text-align: center;
+}
+.bottamsec .title::after {
+  border-bottom: 1px solid #515555;
+  content: "";
+  display: block;
+  margin: 0 auto 10px;
+  padding-bottom: 20px;
+  width: 20%;
+}
+.bottamsec .links {
+  width: 250px;
+}
+.bottamsec .links ul {
+  list-style: none;
+}
+.bottamsec .links ul li a {
+  color: #515555;
+  margin: 20px 0px;
+  text-align: center;
+  font-weight: 300;
+  display: block;
+  font-size: 20px;
+}
+
+.bottamsec .followbox .followinpbox {
+  background-color: #fff;
+  width: 320px;
+  padding: 30px 20px;
+}
+.bottamsec .followbox .followinpbox .flotit {
+  color: rgb(66, 66, 66);
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 15px;
+  font-weight: bold;
+}
+.clbtn,
+.dlsbtn {
+  width: 100%;
+  padding: 12px 10px;
+  background-color: #515555;
+  cursor: pointer;
+  color: #fff;
+  border: none;
+  margin-top: 20px;
+  text-transform: uppercase;
+}
+
+.dlsbtn {
+  opacity: 0.4;
+  cursor: progress;
+}
+.blogfotter .socaillinks .socailbox {
+  width: 250px;
+}
+.blogfotter .socaillinks .socailbox ul {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  flex-wrap: wrap;
+  margin-top: -20px;
+}
+.blogfotter .socaillinks .socailbox ul li {
+  background-color: #000;
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  margin: 10px;
+  line-height: 45px;
+  border-radius: 50px;
+}
+.blogfotter .socaillinks .socailbox ul li a {
+  display: block;
+}
+
+/* oon hover efecr */
+.blogfotter .socaillinks .socailbox ul .fb:hover {
+  background: rgb(9, 9, 121);
+  background: linear-gradient(
+    166deg,
+    rgba(9, 9, 121, 1) 0%,
+    rgba(0, 161, 255, 1) 100%
+  );
+}
+
+.blogfotter .socaillinks .socailbox ul .ig:hover {
+  background: rgb(232, 63, 251);
+  background: linear-gradient(
+    105deg,
+    rgba(232, 63, 251, 1) 27%,
+    rgba(252, 70, 107, 1) 100%
+  );
+}
+.blogfotter .socaillinks .socailbox ul .gh:hover {
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    105deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(99, 99, 99, 1) 17%
+  );
+}
+.blogfotter .socaillinks .socailbox ul .yt:hover {
+  background: rgb(255, 39, 39);
+  background: linear-gradient(
+    105deg,
+    rgba(255, 39, 39, 1) 0%,
+    rgba(176, 80, 80, 1) 76%
+  );
+}
+@media only screen and (max-width: 819px) {
+  .bottamsec {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+  }
+}
+@media only screen and (max-width: 350px) {
+  .bottamsec .links {
+    width: 100% !important;
+  }
+  .blogfotter .socaillinks .socailbox {
+    width: 100% !important;
+  }
+  .bottamsec .followbox .followinpbox {
+    width: 100%;
+  }
+}

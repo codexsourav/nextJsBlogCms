@@ -59,6 +59,13 @@ function Postbox(props) {
           >
             {!del ? "DEL..." : "DELETE"}
           </button>
+          <Link
+            href={`/admin/comments/${props.id}`}
+            style={{ marginLeft: 20 }}
+            className="clbtn2"
+          >
+            Comments
+          </Link>
         </>
       ) : null}
     </div>

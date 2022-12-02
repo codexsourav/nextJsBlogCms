@@ -45,8 +45,14 @@
   flex-direction: column;
   padding: 6px 15px;
   gap: 10px;
-  opacity: 0.7;
   margin-top: 5px;
+}
+.sharezone ul li {
+  opacity: 0.4;
+  transition: 0.3s;
+}
+.sharezone ul li:hover {
+  opacity: 1;
 }
 
 @media only screen and (max-width: 1050px) {

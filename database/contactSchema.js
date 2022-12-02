@@ -3,19 +3,19 @@ import mongoose from "mongoose";
 const Contact = new mongoose.Schema({
   name: {
     type: String,
-    recquire: true,
+    required: true,
   },
   email: {
     type: String,
-    recquire: true,
+    required: true,
   },
   message: {
     type: String,
-    recquire: true,
+    required: true,
   },
   date: {
     type: Date,
-    recquire: true,
+    required: true,
   },
 });
 mongoose.models = {};

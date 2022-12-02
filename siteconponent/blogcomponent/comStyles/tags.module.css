@@ -1,0 +1,24 @@
+.tags {
+  width: 100%;
+}
+.tags ul {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  list-style: none;
+}
+.tags ul li {
+  margin: 10px 8px;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-family: "Signika", sans-serif;
+  background-color: #f7f8f9;
+  padding: 0px 10px;
+  border-radius: 3px;
+  cursor: default;
+}
+.tags ul .main {
+  background-color: #ee7660;
+  color: #fff;
+}

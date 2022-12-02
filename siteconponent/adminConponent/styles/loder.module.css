@@ -1,0 +1,21 @@
+.loder {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.212);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.spiner {
+  width: 80px;
+  height: 80px;
+  font-size: 40px !important;
+  color: #fff;
+  border-radius: 50px;
+  border: 8px solid rgb(53, 53, 53);
+  border-top: 8px solid #fff;
+}
