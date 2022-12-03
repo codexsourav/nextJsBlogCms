@@ -4,11 +4,11 @@ import { getStorage } from "firebase/storage";
 
 const firebaseConfig = {
   apiKey: process.env.FBID,
-  authDomain: process.env.FDOMAIN,
-  projectId: process.env.FBPID,
-  storageBucket: process.env.FBSB,
-  messagingSenderId: process.env.FBMSID,
-  appId: process.env.FBAPPID,
+  authDomain: "codexsourav-404.firebaseapp.com",
+  projectId: "codexsourav-404",
+  storageBucket: "codexsourav-404.appspot.com",
+  messagingSenderId: "941623218077",
+  appId: "1:941623218077:web:0cd9b35f0a02491b6a6974",
 };
 
 // Initialize Firebase
