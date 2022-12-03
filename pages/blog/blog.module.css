@@ -26,8 +26,8 @@
   font-size: 15px;
 }
 .content img {
-  width: 50%;
-  height: auto;
+  width: 50% !important;
+  height: auto !important;
 }
 .sharezone {
   float: left;
@@ -67,9 +67,9 @@
 }
 @media only screen and (max-width: 550px) {
   .content img {
-    width: 100%;
-    height: auto;
-    margin: 8px 0px;
+    width: 100% !important;
+    height: auto !important;
+    margin: 8px 0px !important;
   }
   .postinfobox {
     width: 100%;
