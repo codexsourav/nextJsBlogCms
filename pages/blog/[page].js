@@ -6,11 +6,28 @@ import Share from "../../siteconponent/blogcomponent/share";
 import Tags from "../../siteconponent/blogcomponent/tags";
 import Comment from "../../siteconponent/blogcomponent/comment/comment";
 import styles from "./blog.module.css";
-import Blogfotter from "../../siteconponent/blogcomponent/blogfotter";
+import { useEffect } from "react";
 
 function Page(props) {
   const blog = props.data;
   const host = props.host + "/blog/" + blog.uri;
+
+  useEffect(() => {
+    let options = {
+      method: "POST",
+      headers: {
+        Accept: "*/*",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        id: blog._id,
+      }),
+    };
+
+    fetch("/api/viewcount", options)
+      .then((res) => res.json())
+      .catch((err) => console.error("error:" + err));
+  }, []);
 
   if (blog.error) {
     return (
@@ -73,10 +90,6 @@ function Page(props) {
           <Comment postid={blog._id} />
         </div>
       </div>
-
-      <br />
-      <br />
-      <Blogfotter />
     </>
   );
 }

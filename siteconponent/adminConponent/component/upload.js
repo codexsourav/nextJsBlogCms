@@ -120,6 +120,7 @@ function Upload() {
         {!laod ? "Uplaod Image" : "Uploading..."}
       </button>
       <br />
+      {getfile.length == 0 ? <p style={{ margin: 40 }}>Loadng...</p> : null}
       <div className={styles.img}>
         {getfile
           ? getfile.map((d) => {

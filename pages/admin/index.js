@@ -31,6 +31,7 @@ function Index(props) {
                 id={blog._id}
                 title={blog.uri}
                 desc={blog.desc}
+                view={blog.viewcount}
               />
             );
           })

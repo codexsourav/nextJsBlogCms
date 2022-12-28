@@ -5,6 +5,8 @@ import Fotter from "../siteconponent/blogcomponent/fotter";
 
 import { useRouter } from "next/router";
 import Head from "next/head";
+import Blogfotter from "../siteconponent/blogcomponent/blogfotter";
+import { useEffect } from "react";
 
 function MyApp({ Component, pageProps }) {
   let route = useRouter().route;
@@ -17,7 +19,9 @@ function MyApp({ Component, pageProps }) {
       </Head>
       {url != "admin" && url != "sitemap.xml" ? (
         <>
-          <Navbar /> <Component {...pageProps} /> <Fotter />
+          <div className="fixwidthview">
+            <Navbar /> <Component {...pageProps} /> <Blogfotter /> <Fotter />
+          </div>
         </>
       ) : (
         <Component {...pageProps} />

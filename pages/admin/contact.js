@@ -5,6 +5,8 @@ import Swal from "sweetalert2/dist/sweetalert2.js";
 
 function Contact() {
   const [data, setData] = useState([]);
+  const [dataload, setLoad] = useState(false);
+
   const deletecon = (id) => {
     let url = "/api/getcontact";
 
@@ -41,12 +43,27 @@ function Contact() {
 
     fetch("/api/getcontact", options)
       .then((res) => res.json())
-      .then((json) => setData(json))
+      .then((json) => {
+        setData(json);
+        setLoad(true);
+      })
       .catch((err) => console.error("error:" + err));
   };
   useEffect(() => {
     load();
   }, []);
+
+  if (data.length == 0) {
+    return (
+      <>
+        <Adminnavbar />
+        <Sidebar />
+        <div className="container-admin">
+          {!dataload ? <p>Loading...</p> : <p>No Data Found</p>}
+        </div>
+      </>
+    );
+  }
 
   return (
     <>

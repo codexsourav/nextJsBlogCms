@@ -43,8 +43,10 @@ function Postbox(props) {
       <br />
       <p style={{ marginBottom: 10 }}>{props.desc}</p>
       <br />
+      {props.view ? <p>Views : {props.view}</p> : null}
+
       {del ? (
-        <>
+        <div className="buttonflex">
           <Link href={`/admin/update/${props.id}`} className="clbtn">
             UPDATE
           </Link>
@@ -66,7 +68,7 @@ function Postbox(props) {
           >
             Comments
           </Link>
-        </>
+        </div>
       ) : null}
     </div>
   );

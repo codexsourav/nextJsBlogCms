@@ -14,18 +14,23 @@ function Update() {
   const roues = useRouter();
   const { id } = roues.query;
 
+  const [data, setdata] = useState({
+    title: "",
+    desc: "",
+    poster: "",
+    uri: "",
+    tags: "",
+    auther: "Souarv",
+    cate: "",
+    view: -1,
+    pid: "",
+  });
+
   const [content, setcontent] = useState("");
-  const [title, settitle] = useState("");
-  const [desc, setdesc] = useState("");
-  const [poster, setposter] = useState("");
-  const [uri, seturi] = useState("");
-  const [tags, settags] = useState("");
-  const [auther, setauther] = useState("Sourav");
-  const [cate, setcate] = useState("");
-  const [view, setview] = useState(-1);
+
   const [error, seterror] = useState("");
-  const [pid, setpid] = useState("");
   const [load, setLoad] = useState(false);
+
   useEffect(() => {
     let url = "/api/blog";
     let options = {
@@ -45,18 +50,21 @@ function Update() {
           Router.replace("/admin");
         }
         setcontent(json.content);
-        settitle(json.title);
-        setdesc(json.desc);
-        setposter(json.poster);
-        setauther(json.auther);
-        seturi(json.uri);
-        settags(json.tags);
-        setcate(json.cate);
-        setview(json.view);
-        setpid(json._id);
+        setdata({
+          ...json,
+          pid: json._id,
+          content: "",
+        });
       })
       .catch((err) => console.error("error:" + err));
   }, [id]);
+
+  const handelInp = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+    setdata({ ...data, [name]: value });
+    console.log({ [name]: value });
+  };
 
   const upadtepost = () => {
     setLoad(true);
@@ -69,16 +77,8 @@ function Update() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        title,
-        poster,
-        content,
-        desc,
-        tags,
-        cate,
-        auther,
-        uri,
-        view,
-        pid,
+        ...data,
+        content: content,
       }),
     };
 
@@ -119,9 +119,10 @@ function Update() {
           type="text"
           className="inp"
           style={{ marginBottom: 30 }}
-          value={title}
+          value={data.title}
+          name="title"
           onChange={(d) => {
-            settitle(d.target.value);
+            handelInp(d);
           }}
         />
 
@@ -132,9 +133,10 @@ function Update() {
           type="text"
           className="inp"
           style={{ marginBottom: 30 }}
-          value={desc}
+          value={data.desc}
+          name="desc"
           onChange={(d) => {
-            setdesc(d.target.value);
+            handelInp(d);
           }}
         />
 
@@ -143,9 +145,10 @@ function Update() {
           type="text"
           className="inp"
           style={{ marginBottom: 30 }}
-          value={poster}
+          value={data.poster}
+          name="poster"
           onChange={(d) => {
-            setposter(d.target.value);
+            handelInp(d);
           }}
         />
 
@@ -156,9 +159,10 @@ function Update() {
           type="text"
           className="inp"
           style={{ marginBottom: 30 }}
-          value={auther}
+          value={data.auther}
+          name="auther"
           onChange={(d) => {
-            setauther(d.target.value);
+            handelInp(d);
           }}
         />
 
@@ -169,9 +173,10 @@ function Update() {
           type="text"
           className="inp"
           style={{ marginBottom: 30 }}
-          value={uri}
+          value={data.uri}
+          name="uri"
           onChange={(d) => {
-            seturi(d.target.value);
+            handelInp(d);
           }}
         />
 
@@ -180,9 +185,10 @@ function Update() {
           type="text"
           className="inp"
           style={{ marginBottom: 30 }}
-          value={tags}
+          value={data.tags}
+          name="tags"
           onChange={(d) => {
-            settags(d.target.value);
+            handelInp(d);
           }}
         />
 
@@ -193,9 +199,10 @@ function Update() {
           type="text"
           className="inp"
           style={{ marginBottom: 30 }}
-          value={cate}
+          value={data.cate}
+          name="cate"
           onChange={(d) => {
-            setcate(d.target.value);
+            handelInp(d);
           }}
         />
 
@@ -205,9 +212,10 @@ function Update() {
         <select
           className="inp"
           style={{ marginBottom: 30 }}
-          value={view}
+          value={data.view}
+          name="view"
           onChange={(v) => {
-            setview(v.target.value);
+            handelInp(v);
           }}
         >
           <option value={-1}>Private</option>

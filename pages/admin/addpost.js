@@ -11,17 +11,28 @@ import Swal from "sweetalert2/dist/sweetalert2.js";
 import Imgget from "../../siteconponent/adminConponent/component/Imgget";
 
 function Addpost() {
+  const [data, setdata] = useState({
+    title: "",
+    desc: "",
+    poster: "",
+    uri: "",
+    tags: "",
+    auther: "Souarv",
+    cate: "",
+    view: -1,
+  });
+
   const [content, setcontent] = useState("");
-  const [title, settitle] = useState("");
-  const [desc, setdesc] = useState("");
-  const [poster, setposter] = useState("");
-  const [uri, seturi] = useState("");
-  const [tags, settags] = useState("");
-  const [auther, setauther] = useState("Sourav");
-  const [cate, setcate] = useState("");
-  const [view, setview] = useState(-1);
+
   const [Laod, setLaod] = useState(false);
   const [error, seterror] = useState("");
+
+  const handelInp = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+    setdata({ ...data, [name]: value });
+    console.log({ [name]: value });
+  };
 
   // add post function
 
@@ -36,17 +47,7 @@ function Addpost() {
 
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        title,
-        poster,
-        content,
-        desc,
-        tags,
-        cate,
-        auther,
-        uri,
-        view,
-      }),
+      body: JSON.stringify({ ...data, content }),
     };
 
     fetch(url, options)
@@ -61,6 +62,18 @@ function Addpost() {
             seterror(json.error);
           } else {
             Swal.fire("Your New Post Is Added!", "", "success");
+            // empty all filds
+            setdata({
+              title: "",
+              desc: "",
+              poster: "",
+              uri: "",
+              tags: "",
+              auther: "Souarv",
+              cate: "",
+              view: -1,
+            });
+            setcontent("");
           }
         }
       })
@@ -86,9 +99,10 @@ function Addpost() {
           type="text"
           className="inp"
           style={{ marginBottom: 30 }}
-          value={title}
+          value={data.title}
+          name="title"
           onChange={(d) => {
-            settitle(d.target.value);
+            handelInp(d);
           }}
         />
 
@@ -99,9 +113,10 @@ function Addpost() {
           type="text"
           className="inp"
           style={{ marginBottom: 30 }}
-          value={desc}
+          value={data.desc}
+          name="desc"
           onChange={(d) => {
-            setdesc(d.target.value);
+            handelInp(d);
           }}
         />
 
@@ -110,9 +125,10 @@ function Addpost() {
           type="text"
           className="inp"
           style={{ marginBottom: 30 }}
-          value={poster}
+          value={data.poster}
+          name="poster"
           onChange={(d) => {
-            setposter(d.target.value);
+            handelInp(d);
           }}
         />
 
@@ -123,9 +139,10 @@ function Addpost() {
           type="text"
           className="inp"
           style={{ marginBottom: 30 }}
-          value={auther}
+          value={data.auther}
+          name="auther"
           onChange={(d) => {
-            setauther(d.target.value);
+            handelInp(d);
           }}
         />
 
@@ -136,9 +153,10 @@ function Addpost() {
           type="text"
           className="inp"
           style={{ marginBottom: 30 }}
-          value={uri}
+          value={data.uri}
+          name="uri"
           onChange={(d) => {
-            seturi(d.target.value);
+            handelInp(d);
           }}
         />
 
@@ -147,9 +165,10 @@ function Addpost() {
           type="text"
           className="inp"
           style={{ marginBottom: 30 }}
-          value={tags}
+          value={data.tags}
+          name="tags"
           onChange={(d) => {
-            settags(d.target.value);
+            handelInp(d);
           }}
         />
 
@@ -160,9 +179,10 @@ function Addpost() {
           type="text"
           className="inp"
           style={{ marginBottom: 30 }}
-          value={cate}
+          value={data.cate}
+          name="cate"
           onChange={(d) => {
-            setcate(d.target.value);
+            handelInp(d);
           }}
         />
 
@@ -172,9 +192,10 @@ function Addpost() {
         <select
           className="inp"
           style={{ marginBottom: 30 }}
-          value={view}
+          value={data.view}
+          name="view"
           onChange={(v) => {
-            setview(v.target.value);
+            handelInp(v);
           }}
         >
           <option value={-1}>Private</option>
