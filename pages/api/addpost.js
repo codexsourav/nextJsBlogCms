@@ -26,6 +26,7 @@ export default function handler(req, res) {
         uri,
         maindate: today,
         view,
+        viewcount: 0,
       });
 
       addpost
