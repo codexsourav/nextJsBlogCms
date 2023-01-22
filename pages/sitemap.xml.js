@@ -19,8 +19,7 @@ export async function getServerSideProps(context) {
   context.res.setHeader("Content-Type", "text/xml");
   context.res.write(xml);
   posts.map((e) => {
-    context.res.write(`
-        <url>
+    context.res.write(`<url>
             <loc>${process.env.HOST + "/blog/" + e.uri}</loc>
             <lastmod>${e.date}</lastmod>
         </url>
