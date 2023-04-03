@@ -1,6 +1,6 @@
 import Postdata from "../../database/blogposts";
 export default function handler(req, res) {
-  if (req.method === "GET") {
+  if (req.method === "POST") {
     const { fby, sid } = req.body;
     if ((fby, sid)) {
       Postdata.findOne({ [fby]: sid })
